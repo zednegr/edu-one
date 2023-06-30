@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 
 export const Nav = styled.div`
     display: flex;
@@ -25,3 +25,26 @@ export const NavSearch = styled.input`
     border-radius: 30px;
     border: 0.5px solid grey;
 `
+
+const pulseAnimation = keyframes`
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+`;
+
+export const Button = styled.button`
+padding: 10px 20px;
+background: #4285f4;
+color: #fff;
+border: none;
+border-radius: 4px;
+font-size: 16px;
+cursor: pointer;
+animation: ${pulseAnimation} 1s ease-in-out infinite;
+`;
