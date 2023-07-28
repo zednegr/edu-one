@@ -1,4 +1,4 @@
-import { Nav, NavLogo} from "./navbar";
+import { Nav, NavLogo} from "./style.js";
 
 import Logo from "../../assets/logobek.jpg"
 import "./style.css"

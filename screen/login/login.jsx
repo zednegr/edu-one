@@ -20,7 +20,7 @@ export default function Login() {
                     <LoginWrapLeft />
                     <LoginWrapRight>
                         <LoginImg src={LogoImg} width={150} height={70} />
-                        <LoginTitle>Kirish</LoginTitle>
+                        {/* <LoginTitle>Sign Up</LoginTitle> */}
                         <LoginInputWrap>
                             <Input size="large" placeholder="Login" />
                         </LoginInputWrap>

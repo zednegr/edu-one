@@ -5,17 +5,17 @@ import Img3 from "../assets/svg/assignment.svg"
 export const navbar_lf_data = [
     {
         name: 'Dashboard',
-        img: Img1,
-        link: ''
+        img: 'pi pi-home',
+        link: '/'
     },
     {
         name: 'People',
-        img: Img2,
-        link: ''
+        img: 'pi pi-user',
+        link: '/students/list'
     },
     {
         name: 'Projects',
-        img: Img3,
-        link: ''
+        img: 'pi pi-box',
+        link: '/teachers/list'
     },
 ]

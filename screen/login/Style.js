@@ -37,11 +37,14 @@ justify-content: center;
 `
 
 export const LoginImg = styled.img`
-
+margin-bottom: 20px;
 `
 
 export const LoginTitle = styled.div`
      margin: 15px 0;
+     text-align: start;
+    /* width: 55%; */
+
      font-size: 24px;
      font-weight: 600;
 `

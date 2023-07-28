@@ -1,5 +1,6 @@
-import { NavLeft, NavLeftItem, NavLeftItemImg, NavLeftList } from "./navbar-left.js"
+import { NavLeft, NavLeftItem, NavLeftItemText, NavLeftList } from "./style.js"
 import { navbar_lf_data } from "../../data/navbar-lf-data.js"
+import { NavLink } from "react-router-dom"
 
 function NavbarLeft() {
     return (
@@ -7,10 +8,12 @@ function NavbarLeft() {
             <NavLeftList>
                 {navbar_lf_data.map(item => {
                     return (
-                        <NavLeftItem>
-                            <NavLeftItemImg src={item?.img} />
-                            {item.name}
-                        </NavLeftItem>
+                        <NavLink to={item.link}>
+                            <NavLeftItem>
+                                <i className={item.img} style={{ color: 'slateblue' }}></i>
+                                <NavLeftItemText>{item.name}</NavLeftItemText>
+                            </NavLeftItem>
+                        </NavLink>
                     )
                 })}
             </NavLeftList>

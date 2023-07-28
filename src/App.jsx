@@ -2,23 +2,40 @@ import { useEffect, useState } from 'react'
 import Login from '../screen/login/login'
 import './App.css'
 import Navbar from './components/navbar/navbar.jsx'
-import styled from "styled-components"
 
-import axios from 'axios'
 import NavbarLeft from './components/navbar-left/navbar-left.jsx'
+import Content from './components/content/content'
 
-const Wrapper = styled.section`
-    padding: 15px;
-`
+import 'primeicons/primeicons.css';
+
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
+import Home from './pages/home/home'
+import Students from './pages/students/students'
+import Teacher from './pages/teachers/teachers'
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/students/list',
+    element: <Students />,
+  },
+  {
+    path: '/teachers/list',
+    element: <Teacher />,
+  }
+])
+
 
 function App() {
+
 
   return (
     <>
       <Navbar />
-      <Wrapper>
-        <NavbarLeft />
-      </Wrapper>
+      <RouterProvider router={router} />
     </>
   )
 }
