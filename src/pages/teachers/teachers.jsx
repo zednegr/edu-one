@@ -1,4 +1,5 @@
 import Fixed from "../../components/fixed/fixed"
+import TeacherCard from "../../components/techer/teacher_card/teacher_card"
 import { TeacherTitle } from "./style"
 
 function Teacher() {
@@ -13,6 +14,7 @@ function Main() {
     return(
       <>
         <TeacherTitle>O'qituvchilar</TeacherTitle>
+        <TeacherCard />
       </>
     )
 }
