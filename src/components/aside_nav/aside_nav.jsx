@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Aside, AsideButton, AsideName, AsideSize, AsideWrap, SidebarContent } from "./style";
 
 import { Sidebar } from 'primereact/sidebar';
@@ -8,6 +8,20 @@ import { Button } from "primereact/button"
 function AsideNav({ name, size }) {
 
     const [visibleRight, setVisibleRight] = useState(false);
+
+    useEffect(() => {
+        document.addEventListener('keydown', detectKeyDown);
+    }, [])
+
+    function detectKeyDown(e) {
+        if (e.key == 'm' ) {
+            setVisibleRight(true)
+        }
+
+        if (e.key == 'l' ) {
+            setVisibleRight(false)
+        }
+    }
 
     return (
         <Aside>
@@ -19,11 +33,11 @@ function AsideNav({ name, size }) {
                 <Button label="Qo'shish" icon="pi pi-plus" size="small" color="#2F80ED" severity="info" rounded onClick={() => setVisibleRight(true)} />
             </AsideButton>
             <Sidebar visible={visibleRight} position="right" onHide={() => setVisibleRight(false)} className="md:w-20rem p-sidebar-md" >
-                    <h2>Right Sidebar</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
+                <h2>Right Sidebar</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
             </Sidebar>
         </Aside>
     )

@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const NavLeft = styled.nav`
    position: fixed;
-   height: 100%;
+   height: 88%;
    background-color: #fff;
    border-radius: 14px;
 `

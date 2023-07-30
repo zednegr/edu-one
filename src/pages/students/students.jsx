@@ -16,6 +16,7 @@ function Main() {
     return(
         <>
            <AsideNav name={'Student'} size={'40'} />
+           
         </>
     )
 }
