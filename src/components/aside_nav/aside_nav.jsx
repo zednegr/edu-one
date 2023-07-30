@@ -6,7 +6,7 @@ import { Button } from "primereact/button"
 import { InputText } from "primereact/inputtext";
 import { InputMask } from "primereact/inputmask";
 import { Calendar } from 'primereact/calendar';
-
+import { RadioButton } from "primereact/radiobutton";
 
 function AsideNav(props) {
 
@@ -58,12 +58,12 @@ function AsideNav(props) {
                     </InputWrapper>
                     <FormWrap>
                         <FormWrapRadio>
-                            <RadioButton inputId="ingredient1" name="pizza" value="" onChange={(e) => setCheckOne(e.value)} checked={ingredient === 'Cheese'} />
-                            <label htmlFor="ingredient1" className="ml-2">Cheese</label>
+                            <RadioButton inputId="ingredient1" name="pizza" value='man' onChange={(e) => setCheckOne(e.value)} checked={checkOne === 'man'} />
+                            <label htmlFor="ingredient1" className="ml-2">Erkak</label>
                         </FormWrapRadio>
                         <FormWrapRadio>
-                            <RadioButton inputId="ingredient1" name="pizza" value="" onChange={(e) => setCheckTwo(e.value)} checked={ingredient === 'Cheese'} />
-                            <label htmlFor="ingredient1" className="ml-2">Cheese</label>
+                            <RadioButton inputId="ingredient2" name="pizza" value='women' onChange={(e) => setCheckTwo(e.value)} checked={checkTwo === 'women'} />
+                            <label htmlFor="ingredient2" className="ml-2">Ayol</label>
                         </FormWrapRadio>
                     </FormWrap>
                 </FormWrapper>
