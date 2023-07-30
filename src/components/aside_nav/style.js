@@ -38,3 +38,38 @@ export const AsideButton = styled.button`
 export const SidebarContent = styled.div`
     width: 20rem;
 `
+
+export const FormWrapper = styled.form`
+    padding: 30px 0;
+
+    input {
+        width: 100%;
+
+        &:active {
+            box-shadow: none;
+        }
+    }
+`
+
+export const InputWrapper = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+
+   label {
+    margin-bottom: 4px;
+   }
+
+   span {
+     width: 100%;
+
+     button {
+        background-color: #2F80ED;
+        box-shadow: none;
+     }
+   }
+
+   & + & {
+      margin-top: 20px;
+   }
+`
