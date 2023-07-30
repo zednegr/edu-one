@@ -13,16 +13,16 @@ export const TeacherCardWrap = styled.div`
 `
 
 export const TeacherCardBox = styled.div`
-     display: flex;
-     align-items: center;
-     gap: 17px;
-     position: relative;
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    position: relative;
 `
 
 export const TeacherCardAvatar = styled.img`
-     width: 50px;
-     height: 50px;
-     border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 `
 
 export const TeacherCardCon = styled.div`

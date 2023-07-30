@@ -73,3 +73,13 @@ export const InputWrapper = styled.div`
       margin-top: 20px;
    }
 `
+
+export const FormWrap = styled.div`
+   display: flex;
+   align-items: center;
+`
+
+export const FormWrapRadio = styled.div`
+    display: flex;
+    align-items: center;
+`

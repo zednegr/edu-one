@@ -12,7 +12,6 @@ export const Nav = styled.div`
     background-color: #fff;
     border-radius: 0 0 15px 15px;
    box-shadow: 0 1px 15px rgba(0,0,0,.07), 0 1px 6px rgba(0,0,0,.07);
-
 `
 
 export const NavLogo = styled.img`

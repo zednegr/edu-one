@@ -29,17 +29,17 @@ export const LoginWrapLeft = styled.div`
 `
 
 export const LoginWrapRight = styled.div`
-display: flex;
-align-items: center;
-flex-direction: column;
-justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     width: 500px;
     height: 600px;
     background-color: #fff;
 `
 
 export const LoginImg = styled.img`
-margin-bottom: 20px;
+    margin-bottom: 20px;
 `
 
 export const LoginTitle = styled.div`

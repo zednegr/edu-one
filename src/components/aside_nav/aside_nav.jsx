@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Aside, AsideButton, AsideName, AsideSize, AsideWrap, FormWrapper, InputWrapper, SidebarContent } from "./style";
+import { Aside, AsideButton, AsideName, AsideSize, AsideWrap, FormWrap, FormWrapRadio, FormWrapper, InputWrapper, SidebarContent } from "./style";
 
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from "primereact/button"
@@ -12,6 +12,9 @@ function AsideNav(props) {
 
     const [name, setName] = useState('');
     const [calendar, setCalendar] = useState(null);
+    const [checkOne, setCheckOne] = useState()
+    const [checkTwo, setCheckTwo] = useState()
+
     const [visibleRight, setVisibleRight] = useState(false);
 
     useEffect(() => {
@@ -53,6 +56,16 @@ function AsideNav(props) {
                         <label htmlFor="username">Tug’ilgan sana</label>
                         <Calendar value={calendar} onChange={(e) => setCalendar(e.value)} showIcon />
                     </InputWrapper>
+                    <FormWrap>
+                        <FormWrapRadio>
+                            <RadioButton inputId="ingredient1" name="pizza" value="" onChange={(e) => setCheckOne(e.value)} checked={ingredient === 'Cheese'} />
+                            <label htmlFor="ingredient1" className="ml-2">Cheese</label>
+                        </FormWrapRadio>
+                        <FormWrapRadio>
+                            <RadioButton inputId="ingredient1" name="pizza" value="" onChange={(e) => setCheckTwo(e.value)} checked={ingredient === 'Cheese'} />
+                            <label htmlFor="ingredient1" className="ml-2">Cheese</label>
+                        </FormWrapRadio>
+                    </FormWrap>
                 </FormWrapper>
             </Sidebar>
         </Aside>
