@@ -9,12 +9,12 @@ export const navbar_lf_data = [
         link: '/'
     },
     {
-        name: 'People',
+        name: 'Students',
         img: 'pi pi-user',
         link: '/students/list'
     },
     {
-        name: 'Projects',
+        name: 'Teachers',
         img: 'pi pi-box',
         link: '/teachers/list'
     },

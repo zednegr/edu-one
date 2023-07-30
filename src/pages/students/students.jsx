@@ -1,3 +1,4 @@
+import AsideNav from "../../components/aside_nav/aside_nav"
 import Fixed from "../../components/fixed/fixed"
 
 function Students() {
@@ -6,7 +7,15 @@ function Students() {
 
     return(
         <>
-           <Fixed content={text} />
+           <Fixed content={<Main />} />
+        </>
+    )
+}
+
+function Main() {
+    return(
+        <>
+           <AsideNav name={'Student'} size={'40'} />
         </>
     )
 }

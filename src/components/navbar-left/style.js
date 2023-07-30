@@ -12,6 +12,10 @@ export const NavLeftList = styled.ul`
    align-content: center;
    padding: 15px;
    gap: 25px 0;
+
+   a {
+    color: #000000;
+   }
 `
 
 export const NavLeftItemText = styled.div`
@@ -26,7 +30,7 @@ export const NavLeftItem = styled.li`
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 4px 0;
+    gap: 5px 0;
     padding: 8px;
     width: 100%;
     border-radius: 10px;

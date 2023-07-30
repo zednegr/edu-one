@@ -6,7 +6,7 @@ export const FixWrapper = styled.section`
 `
 
 export const FixContent = styled.div`
-   padding: 0 25px;
+   padding: 0 0px 0 25px;
    width: 91.5%;
    margin-left: auto;
    /* height: 90vh; */

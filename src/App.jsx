@@ -1,42 +1,43 @@
-import { useEffect, useState } from 'react'
-import Login from '../screen/login/login'
-import './App.css'
-import Navbar from './components/navbar/navbar.jsx'
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider
+} from "react-router-dom"
 
-import NavbarLeft from './components/navbar-left/navbar-left.jsx'
-import Content from './components/content/content'
+// *Css
+import './App.css'
 
 import 'primeicons/primeicons.css';
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import "primereact/resources/primereact.min.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom"
+// *Pages
+import Login from '../screen/login/login'
 import Home from './pages/home/home'
 import Students from './pages/students/students'
 import Teacher from './pages/teachers/teachers'
+import RootLayout from "./layouts/rootLayout";
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <Home />,
-  },
-  {
-    path: '/students/list',
-    element: <Students />,
-  },
-  {
-    path: '/teachers/list',
-    element: <Teacher />,
-  }
-])
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route>
+      <Route path="/" element={<RootLayout />}>
+        <Route index element={<Home />} />
+        <Route path='students/list' element={<Students />} />
+        <Route path='teachers/list' element={<Teacher />} />
+      </Route>
+      <Route>
+        <Route path="/login" element={<Login />} />
+      </Route>
+    </Route>
+  )
+)
 
 function App() {
-
-
   return (
-    <>
-      <Navbar />
-      <RouterProvider router={router} />
-    </>
+    <RouterProvider router={router} />
   )
 }
 
