@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components';
 export const Nav = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     width: 100%;
@@ -17,4 +18,10 @@ export const Nav = styled.div`
 export const NavLogo = styled.img`
     width: 90px;
     height: 40px;
+`
+
+export const NavRight = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 25px;
 `
