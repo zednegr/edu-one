@@ -1,7 +1,33 @@
-import { TeacherCardAvatar, TeacherCardBox, TeacherCardCon, TeacherCardJob, TeacherCardName, TeacherCardWrap } from "./style"
+import { useRef } from "react";
+import { TeacherCardAvatar, TeacherCardBox, TeacherCardCon, TeacherCardJob, TeacherCardName, TeacherCardWrap } from "./style";
+
+import "./style.css";
+
+import { Button } from 'primereact/button';
+import { Menu } from 'primereact/menu';
 
 
 function TeacherCard() {
+
+    const menuRight = useRef(null);
+
+    const items = [
+        {
+            label: 'Tahrirlash',
+            icon: 'pi pi-user-edit',
+            command: (e) => {
+
+            }
+        },
+        {
+            label: "O'chirish",
+            icon: 'pi pi-trash',
+            command: (e) => {
+                setLoginOut(true)
+            }
+        }
+    ];
+
 
     return (
         <TeacherCardWrap className="card" tooltipOptions={{ position: 'bottom', mouseTrack: true, mouseTrackTop: 15 }}>
@@ -13,6 +39,11 @@ function TeacherCard() {
                 </TeacherCardCon>
 
             </TeacherCardBox>
+
+
+            <Button icon="pi pi-ellipsis-v teacher-set" style={{ boxShadow: 'none', color: '#C3CAD9', width: '40px', height: '40px' }} rounded text aria-label="Cancel" onClick={(event) => menuRight.current.toggle(event)} />
+            <Menu model={items} popup ref={menuRight} style={{width: '150px', color: 'red'}} />
+
         </TeacherCardWrap>
     )
 }

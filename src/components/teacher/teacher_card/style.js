@@ -4,7 +4,7 @@ export const TeacherCardWrap = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px;
+    padding: 15px 10px 15px 20px;
     width: 400px;
     height: 90px;
     border-radius: 5px;
@@ -34,7 +34,7 @@ export const TeacherCardCon = styled.div`
 export const TeacherCardName = styled.div`
     font-size: 18px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 20px;
     color: var(--grey-blue-60, #6B7A99);
 `
@@ -43,6 +43,6 @@ export const TeacherCardJob = styled.div`
     color: var(--grey-blue-80, #ADB8CC);
     font-size: 16px;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 20px;
 `
