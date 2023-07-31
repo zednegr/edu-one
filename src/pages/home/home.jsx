@@ -1,10 +1,19 @@
+import Dashboard from "../../components/dashboard/dashboard"
 import Fixed from "../../components/fixed/fixed"
 
 
 function Home() {
-    return(
+    return (
         <>
-            <Fixed content={'Home'} />
+            <Fixed content={<Main/>} />
+        </>
+    )
+}
+
+function Main() {
+    return (
+        <>
+            <Dashboard />
         </>
     )
 }
