@@ -96,3 +96,6 @@ export const FormWrapRadio = styled.div`
     align-items: center;
     gap: 0 5px;
 `
+export const FormBtn = styled.div`
+    margin-top: 25px;
+`

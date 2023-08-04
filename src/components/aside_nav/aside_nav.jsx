@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Aside, AsideButton, AsideName, AsideSize, AsideWrap, FormWrap, FormWrapRadio, FormWrapper, InputWrapper, SidebarContent } from "./style";
+import { Aside, AsideButton, AsideName, AsideSize, AsideWrap, FormBtn, FormWrap, FormWrapRadio, FormWrapper, InputWrapper, SidebarContent } from "./style";
 
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from "primereact/button"
@@ -83,8 +83,11 @@ function AsideNav(props) {
                     </InputWrapper>
                     <InputWrapper>
                         <label className="input-label" htmlFor="username">Parol</label>
-                        <InputText className="form-input" value={password} onChange={(e) => setPassword(e.target.value)} />
+                        <Password style={{ width: '100%' }} value={password} onChange={(e) => setPassword(e.target.value)} feedback={false} toggleMask />
                     </InputWrapper>
+                    <FormBtn>
+                        <Button label="Qo'shish" severity="info" rounded />
+                    </FormBtn>
                 </FormWrapper>
             </Sidebar>
         </Aside>
