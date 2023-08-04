@@ -40,7 +40,7 @@ export const SidebarContent = styled.div`
 `
 
 export const FormWrapper = styled.form`
-    padding: 30px 0;
+    padding: 0 0 20px 0;
 
     input {
         width: 100%;
@@ -56,8 +56,8 @@ export const InputWrapper = styled.div`
    flex-direction: column;
    align-items: start;
 
-   label {
-    margin-bottom: 4px;
+   .input-label {
+    margin-bottom: 8px;
    }
 
    span {
@@ -70,16 +70,29 @@ export const InputWrapper = styled.div`
    }
 
    & + & {
-      margin-top: 20px;
+      margin-top: 25px;
    }
+
+   .p-button {
+    color: #2F80ED;
+    border: 1px solid #ced4da;
+    background-color: transparent !important;
+   }
+
+   .p-button:not(button):not(a):not(.p-disabled):hover {
+    color: #2F80ED !important;
+    border-color: #ced4da !important;
+     }
 `
 
 export const FormWrap = styled.div`
    display: flex;
    align-items: center;
+   gap: 0 20px;
 `
 
 export const FormWrapRadio = styled.div`
     display: flex;
     align-items: center;
+    gap: 0 5px;
 `
