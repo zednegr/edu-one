@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-export const StudentWrap = styled.section`
+export const GroupWrap = styled.section`
 
 `
 
-export const StudentTop = styled.div`
+export const GroupTop = styled.div`
     display: flex;
     gap: 0 15px;
     margin-bottom: 20px;
@@ -33,11 +33,11 @@ export const SelectWrap = styled.div`
     background: #FFF;
 `
 
-export const StudentMain = styled.div`
+export const GroupMain = styled.div`
 
 `
 
-export const  StudentTableTop = styled.div`
+export const  GroupTableTop = styled.div`
     display: flex;
     align-items: center;
     padding: 0 20px;
@@ -48,7 +48,7 @@ export const  StudentTableTop = styled.div`
     background-color: #fff;
 `
 
-export const StudentTableTopItem = styled.div`
+export const GroupTableTopItem = styled.div`
     color: #4D525B;
     font-size: 12px;
     font-style: normal;
@@ -56,13 +56,13 @@ export const StudentTableTopItem = styled.div`
     line-height: normal;
 `
 
-export const StudentTableMain = styled.div`
+export const GroupTableMain = styled.div`
     display: flex;
     flex-direction: column;
     gap: 10px 0;
 `
 
-export const StudentTableMainItem = styled.div`
+export const GroupTableMainItem = styled.div`
     display: flex;
     align-items: center;
     gap: 50px;
@@ -74,7 +74,7 @@ export const StudentTableMainItem = styled.div`
     justify-content: space-between;
 `
 
-export const StudentTableMainBox = styled.div`
+export const GroupTableMainBox = styled.div`
     color: #6A6C72;
     font-size: 10px;
     font-style: normal;

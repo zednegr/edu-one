@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Aside, AsideButton, AsideName, AsideSize, AsideWrap, FormBtn, FormWrap, FormWrapRadio, FormWrapper, InputWrapper, SidebarContent } from "./style";
 
+import axios from "axios";
+
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from "primereact/button"
 import { InputText } from "primereact/inputtext";
@@ -18,6 +20,7 @@ function AsideNav(props) {
     const [checkOne, setCheckOne] = useState('')
     const [checkTwo, setCheckTwo] = useState('')
     const [password, setPassword] = useState('')
+    const [img, setImg] = useState('')
 
     const [visibleRight, setVisibleRight] = useState(false);
 
@@ -37,6 +40,22 @@ function AsideNav(props) {
         if (e.key == 'l') {
             setVisibleRight(false)
         }
+    }
+
+    function onSubmitTeacher(e) {
+        e.preventDefault()
+
+        const data = {name}
+
+        fetch(`https://64ca7e11700d50e3c704fadc.mockapi.io/edu`, {
+            method: 'POST',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then(res => res.json()).then(data => {
+            console.log(data);
+        })
     }
 
     return (
@@ -86,7 +105,7 @@ function AsideNav(props) {
                         <Password style={{ width: '100%' }} value={password} onChange={(e) => setPassword(e.target.value)} feedback={false} toggleMask />
                     </InputWrapper>
                     <FormBtn>
-                        <Button label="Qo'shish" severity="info" rounded />
+                        <Button label="Qo'shish" severity="info" rounded onClick={onSubmitTeacher} />
                     </FormBtn>
                 </FormWrapper>
             </Sidebar>

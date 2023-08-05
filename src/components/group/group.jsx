@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { SelectTitle, SelectWrap, SelectWrapper, StudentMain, StudentTableMain, StudentTableMainBox, StudentTableMainItem, StudentTableTop, StudentTableTopItem, StudentTop, StudentWrap } from "./style";
+import { SelectTitle, SelectWrap, SelectWrapper, GroupMain, GroupTableMain, GroupTableMainBox, GroupTableMainItem, GroupTableTop, GroupTableTopItem, GroupTop, GroupWrap } from "./style";
 
 import { Button } from 'primereact/button';
 import { Menu } from 'primereact/menu';
@@ -116,33 +116,8 @@ function Group() {
     ];
 
     return (
-        <StudentWrap>
-            <StudentTop>
-                <SelectWrapper>
-                    <SelectTitle>Barchasi</SelectTitle>
-                    <SelectWrap>
-                        <Space
-                            style={{
-                                width: '240px',
-                            }}
-                            direction="vertical">
-                            <Select
-                                bordered={false}
-                                mode="multiple"
-                                allowClear
-                                style={{
-                                    width: '100%',
-
-                                }}
-                                placeholder="Barchasi"
-                                defaultValue={[]}
-                                onChange={handleChange}
-                                options={options}
-                            />
-
-                        </Space>
-                    </SelectWrap>
-                </SelectWrapper>
+        <GroupWrap>
+            <GroupTop>
 
                 <SelectWrapper>
                     <SelectTitle>Kurslar bo’yicha</SelectTitle>
@@ -171,7 +146,7 @@ function Group() {
                 </SelectWrapper>
 
                 <SelectWrapper>
-                    <SelectTitle>Status bo’yicha</SelectTitle>
+                    <SelectTitle>O'qituvchilar</SelectTitle>
                     <SelectWrap>
                         <Space
                             style={{
@@ -186,7 +161,34 @@ function Group() {
                                     width: '100%',
 
                                 }}
-                                placeholder="Status bo’yicha"
+                                placeholder="O'qituvchilar"
+                                defaultValue={[]}
+                                onChange={handleChange}
+                                options={options}
+                            />
+
+                        </Space>
+                    </SelectWrap>
+                </SelectWrapper>
+
+
+                <SelectWrapper>
+                    <SelectTitle>Faol guruhlar</SelectTitle>
+                    <SelectWrap>
+                        <Space
+                            style={{
+                                width: '240px',
+                            }}
+                            direction="vertical">
+                            <Select
+                                bordered={false}
+                                mode="multiple"
+                                allowClear
+                                style={{
+                                    width: '100%',
+
+                                }}
+                                placeholder="Faol guruhlar"
                                 defaultValue={[]}
                                 onChange={handleChange}
                                 options={options}
@@ -197,7 +199,7 @@ function Group() {
                 </SelectWrapper>
 
                 <SelectWrapper>
-                    <SelectTitle>Moliyaviy holat bo’yicha</SelectTitle>
+                    <SelectTitle>Kunlar</SelectTitle>
                     <SelectWrap>
                         <Space
                             style={{
@@ -212,7 +214,7 @@ function Group() {
                                     width: '100%',
 
                                 }}
-                                placeholder="Moliyaviy holat bo’yicha"
+                                placeholder="Kunlar"
                                 defaultValue={[]}
                                 onChange={handleChange}
                                 options={options}
@@ -229,27 +231,27 @@ function Group() {
                     </SelectWrap>
                 </SelectWrapper>
 
-            </StudentTop>
-            <StudentMain>
-                <StudentTableTop>
-                    <StudentTableTopItem>ID</StudentTableTopItem>
-                </StudentTableTop>
-                <StudentTableMain>
-                    <StudentTableMainItem>
-                        <StudentTableMainBox>3121</StudentTableMainBox>
-                        <StudentTableMainBox>Axranboyev Anvarjon</StudentTableMainBox>
-                        <StudentTableMainBox>Foundation (F22-254)</StudentTableMainBox>
-                        <StudentTableMainBox>90 404 22 22</StudentTableMainBox>
-                        <StudentTableMainBox>Komiljonov Raxmatillo</StudentTableMainBox>
-                        <StudentTableMainBox>06.01.2023 / 06.02.2023</StudentTableMainBox>
-                        <StudentTableMainBox>200.000 so’m</StudentTableMainBox>
-                        <StudentTableMainBox>O’qiyabdi</StudentTableMainBox>
+            </GroupTop>
+            <GroupMain>
+                <GroupTableTop>
+                    <GroupTableTopItem>ID</GroupTableTopItem>
+                </GroupTableTop>
+                <GroupTableMain>
+                    <GroupTableMainItem>
+                        <GroupTableMainBox>3121</GroupTableMainBox>
+                        <GroupTableMainBox>Axranboyev Anvarjon</GroupTableMainBox>
+                        <GroupTableMainBox>Foundation (F22-254)</GroupTableMainBox>
+                        <GroupTableMainBox>90 404 22 22</GroupTableMainBox>
+                        <GroupTableMainBox>Komiljonov Raxmatillo</GroupTableMainBox>
+                        <GroupTableMainBox>06.01.2023 / 06.02.2023</GroupTableMainBox>
+                        <GroupTableMainBox>200.000 so’m</GroupTableMainBox>
+                        <GroupTableMainBox>O’qiyabdi</GroupTableMainBox>
                         <Button icon="pi pi-ellipsis-h teacher-set" style={{ boxShadow: 'none', color: '#C3CAD9', width: '40px', height: '40px' }} rounded text aria-label="Cancel" onClick={(event) => menuRight.current.toggle(event)} />
                         <Menu model={items} popup ref={menuRight} style={{ width: '150px', color: 'red' }} />
-                    </StudentTableMainItem>
-                </StudentTableMain>
-            </StudentMain>
-        </StudentWrap>
+                    </GroupTableMainItem>
+                </GroupTableMain>
+            </GroupMain>
+        </GroupWrap>
     )
 }
 
