@@ -6,7 +6,7 @@ export const TeacherCardWrap = styled.div`
     justify-content: space-between;
     padding: 15px 10px 15px 20px;
     width: 400px;
-    height: 90px;
+    height: 75px;
     border-radius: 5px;
     background-color: #fff;
     box-shadow: 0px 2px 5px 0px rgba(38, 51, 77, 0.03);

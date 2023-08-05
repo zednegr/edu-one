@@ -7,7 +7,7 @@ import { Menu } from 'primereact/menu';
 import { Select, Space, Input, Table, Tag } from 'antd';
 
 
-function Student() {
+function Group() {
 
     const menuRight = useRef(null);
 
@@ -253,4 +253,4 @@ function Student() {
     )
 }
 
-export default Student
+export default Group

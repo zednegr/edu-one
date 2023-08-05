@@ -41,7 +41,7 @@ function TeacherCard() {
             </TeacherCardBox>
 
 
-            <Button icon="pi pi-ellipsis-v teacher-set" style={{ boxShadow: 'none', color: '#C3CAD9', width: '40px', height: '40px' }} rounded text aria-label="Cancel" onClick={(event) => menuRight.current.toggle(event)} />
+            <Button icon="pi pi-ellipsis-h teacher-set" style={{ boxShadow: 'none', color: '#C3CAD9', width: '40px', height: '40px' }} rounded text aria-label="Cancel" onClick={(event) => menuRight.current.toggle(event)} />
             <Menu model={items} popup ref={menuRight} style={{width: '150px', color: 'red'}} />
 
         </TeacherCardWrap>

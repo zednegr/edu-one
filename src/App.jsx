@@ -18,6 +18,7 @@ import Home from './pages/home/home'
 import Students from './pages/students/students'
 import Teacher from './pages/teachers/teachers'
 import RootLayout from "./layouts/rootLayout";
+import Groups from "./pages/groups/groups";
 
 
 const router = createBrowserRouter(
@@ -27,9 +28,10 @@ const router = createBrowserRouter(
         <Route index element={<Home />} />
         <Route path='students/list' element={<Students />} />
         <Route path='teachers/list' element={<Teacher />} />
+        <Route path='groups/list' element={<Groups />} />
       </Route>
       <Route>
-        
+
         <Route path="/login" element={<Login />} />
       </Route>
     </Route>

@@ -20,7 +20,7 @@ function Main() {
   return (
     <>
       <AsideNav name={`O'qituvchilar`} size={'23'} />
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '20px' }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
         <TeacherCard />
         <TeacherCard />
         <TeacherCard />

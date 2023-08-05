@@ -39,7 +39,7 @@ export const NavLeftItem = styled.li`
 
     i {
         font-size: 30px;
-        font-weight: 600;
+        font-weight: 500;
         color: #8E8E93 !important;
     }
 

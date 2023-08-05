@@ -18,4 +18,9 @@ export const navbar_lf_data = [
         img: 'pi pi-box',
         link: '/teachers/list'
     },
+    {
+        name: 'Guruhlar',
+        img: 'pi pi-th-large',
+        link: '/groups/list'
+    },
 ]

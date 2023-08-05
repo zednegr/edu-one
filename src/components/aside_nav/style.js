@@ -20,7 +20,7 @@ export const AsideWrap = styled.div`
 `
 
 export const AsideName = styled.h1`
-
+    font-weight: 500;
 `
 
 export const AsideSize = styled.div`
