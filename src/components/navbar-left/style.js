@@ -10,7 +10,7 @@ export const NavLeftList = styled.ul`
    display: flex;
    flex-direction: column;
    align-content: center;
-   padding: 15px;
+   padding: 15px 8px;
    gap: 25px 0;
 
    a {
