@@ -37,12 +37,15 @@ function TeacherCard() {
     const { isLoading, error, data } = useQuery('repoData', () =>
         fetch('https://64ca7e11700d50e3c704fadc.mockapi.io/edu').then(res =>
             res.json()
+
+
+            
         )
     )
 
 
 
-    
+
     if (isLoading) return <Skeleton />
 
     if (error) return 'An error has occurred: ' + error.message
