@@ -40,6 +40,9 @@ function TeacherCard() {
         )
     )
 
+
+
+    
     if (isLoading) return <Skeleton />
 
     if (error) return 'An error has occurred: ' + error.message
