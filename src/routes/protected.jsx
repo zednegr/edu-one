@@ -6,6 +6,8 @@ const Protected = () => {
 
     let is_registered = localStorage.getItem("")
     useEffect(()=>{
+
+      
         console.log("hello")
     },[])
 
