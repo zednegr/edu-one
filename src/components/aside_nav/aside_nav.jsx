@@ -77,7 +77,7 @@ function AsideNav(props) {
                     </InputWrapper>
                     <InputWrapper>
                         <label className="input-label" htmlFor="username">Telefon</label>
-                        <InputMask mask="99-999-99-99" placeholder="" className="p-invalid" />
+                        <InputMask mask="99-999-99-99" placeholder=""  />
                     </InputWrapper>
                     <InputWrapper>
                         <label className="input-label" htmlFor="username">Tug’ilgan sana</label>
@@ -98,7 +98,7 @@ function AsideNav(props) {
                     </InputWrapper>
                     <InputWrapper>
                         <label className="input-label" htmlFor="username">Foto</label>
-                        <FileUpload style={{ width: '100%', backgroundColor: '#fff' }} mode="basic" name="demo[]" url="/api/upload" accept="image/*" maxFileSize={1000000} onUpload={onUpload} auto chooseLabel="Rasim" />
+                        <FileUpload style={{ width: '100%', backgroundColor: '#fff' }} mode="basic" name="demo[]" url="/api/upload" accept="image/*" maxFileSize={1000000} onUpload={onUpload} auto chooseLabel="Rasm" />
                     </InputWrapper>
                     <InputWrapper>
                         <label className="input-label" htmlFor="username">Parol</label>

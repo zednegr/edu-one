@@ -1,17 +1,42 @@
 import React, { useState } from "react";
-import { CourseLi, CourseUl, CourseWrap } from "./style";
-import { Kurs } from './../../data/course-if-data';
+import {
+  CourseCard,
+  CourseCardBottom,
+  CourseCardTop,
+  CourseContent,
+  CourseCurrensy,
+  CourseDescription,
+  CourseDiv,
+  CoursePrice,
+  CourseTitle,
+  CourseWrap,
+  CourseWrapper,
+} from "./style";
+import { Kurs } from "./../../data/course-if-data";
 export default function Course() {
   return (
     <React.Fragment>
       <CourseWrap>
-        <CourseUl>
+        <CourseWrapper>
           {Kurs.map((course, index) => (
-            <CourseLi key={index}>
-              {course.name}
-            </CourseLi>
+            <CourseContent key={index}>
+              <CourseCard>
+                <CourseCardTop>
+                  <CourseTitle>{course.name}</CourseTitle>
+                </CourseCardTop>
+                <CourseCardBottom>
+                  <CourseDiv>
+                    <CourseDescription>{course.name}</CourseDescription>
+                    <CoursePrice>
+                      {course.money}
+                      <CourseCurrensy>{"uzs"}</CourseCurrensy>
+                    </CoursePrice>
+                  </CourseDiv>
+                </CourseCardBottom>
+              </CourseCard>
+            </CourseContent>
           ))}
-        </CourseUl>
+        </CourseWrapper>
       </CourseWrap>
     </React.Fragment>
   );
