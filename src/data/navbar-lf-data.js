@@ -23,4 +23,10 @@ export const navbar_lf_data = [
         img: 'pi pi-th-large',
         link: '/groups/list'
     },
+    {
+        name: 'Kurslar',
+        img: 'pi pi-prime',
+        link: '/courses/list'
+
+    }
 ]

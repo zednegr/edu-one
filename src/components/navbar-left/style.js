@@ -12,9 +12,16 @@ export const NavLeftList = styled.ul`
    align-content: center;
    padding: 15px 8px;
    gap: 25px 0;
-
    a {
     color: #000000;
+   }
+   .active{
+    i{
+        color:#2F80ED !important;
+    }
+    div{
+        color:#2F80ED !important;
+    }
    }
 `
 

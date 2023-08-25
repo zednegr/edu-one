@@ -19,7 +19,7 @@ import Students from './pages/students/students'
 import Teacher from './pages/teachers/teachers'
 import RootLayout from "./layouts/rootLayout";
 import Groups from "./pages/groups/groups";
-
+import Courses from "./pages/courses/courses";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -29,6 +29,7 @@ const router = createBrowserRouter(
         <Route path='students/list' element={<Students />} />
         <Route path='teachers/list' element={<Teacher />} />
         <Route path='groups/list' element={<Groups />} />
+        <Route path='courses/list' element={<Courses />} />
       </Route>
       <Route>
 

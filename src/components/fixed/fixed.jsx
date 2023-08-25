@@ -9,9 +9,6 @@ function Fixed({ content }) {
                 <NavbarLeft />
                 <FixContent>
                     {content}
-
-
-                    
                 </FixContent>
             </FixWrapper>
         </>
