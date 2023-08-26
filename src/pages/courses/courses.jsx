@@ -1,7 +1,7 @@
 import React from "react";
 import Fixed from "../../components/fixed/fixed";
 import Course from "../../components/course/course";
-import AsideNav from "../../components/aside_nav/aside_nav";
+import Newcourse from "../../components/addcourse/addcourse";
 export default function Courses() {
   return (
     <React.Fragment>
@@ -12,7 +12,7 @@ export default function Courses() {
 function Main() {
   return (
     <React.Fragment>
-      <AsideNav name={"Kurslar"} size={"40"} />
+      <Newcourse name={"Kurslar"} size={"5"} />
       <Course />
     </React.Fragment>
   );

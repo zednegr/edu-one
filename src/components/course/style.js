@@ -15,6 +15,8 @@ width:100%;
 max-width:310px;
 border-radius:15px;
 box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+background-color:white;
+
 
 `
 export const CourseCard = styled.div`
@@ -29,14 +31,22 @@ transition:.4s linear;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
     border-radius:15px;
 }
-
 `
 export const CourseTitle = styled.p`
 font-size:18px;
-color:royalblue;
+color:royalblue !important;
 font-weight:500`
+
+
 export const CourseCurrensy = styled.span` `
-export const CourseDescription = styled.p` `
+
+
+
+export const CourseDescription = styled.p` 
+color:#001 !important;
+font-weight:400;
+font-size:16px;
+`
 export const CoursePrice = styled.p`
 display:flex;
 gap:0 0.5em;

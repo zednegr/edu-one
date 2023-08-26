@@ -21,7 +21,6 @@ function AsideNav(props) {
     const [checkTwo, setCheckTwo] = useState('')
     const [password, setPassword] = useState('')
     const [img, setImg] = useState('')
-
     const [visibleRight, setVisibleRight] = useState(false);
 
     const onUpload = () => {
@@ -65,7 +64,7 @@ function AsideNav(props) {
                 <AsideSize>{`miqdori - ${props.size}`}</AsideSize>
             </AsideWrap>
             <AsideButton>
-                <Button label="Qo'shish" icon="pi pi-plus" size="small" color="#2F80ED" severity="info" rounded onClick={() => setVisibleRight(true)} />
+                <Button label={props.name} icon="pi pi-plus" size="small" color="#2F80ED" severity="info" rounded onClick={() => setVisibleRight(true)} />
             </AsideButton>
             <Sidebar visible={visibleRight} position="right" style={{ width: '430px' }} onHide={() => setVisibleRight(false)} >
                 {/* <h2>Yangi o'qituvchi qo'shish</h2> */}

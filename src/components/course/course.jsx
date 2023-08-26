@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   CourseCard,
   CourseCardBottom,
@@ -20,20 +21,22 @@ export default function Course() {
         <CourseWrapper>
           {Kurs.map((course, index) => (
             <CourseContent key={index}>
-              <CourseCard>
-                <CourseCardTop>
-                  <CourseTitle>{course.name}</CourseTitle>
-                </CourseCardTop>
-                <CourseCardBottom>
-                  <CourseDiv>
-                    <CourseDescription>{course.name}</CourseDescription>
-                    <CoursePrice>
-                      {course.money}
-                      <CourseCurrensy>{"uzs"}</CourseCurrensy>
-                    </CoursePrice>
-                  </CourseDiv>
-                </CourseCardBottom>
-              </CourseCard>
+              <Link to={`courseinner/${course.id}`}>
+                <CourseCard>
+                  <CourseCardTop>
+                    <CourseTitle>{course.name}</CourseTitle>
+                  </CourseCardTop>
+                  <CourseCardBottom>
+                    <CourseDiv>
+                      <CourseDescription>{course.name}</CourseDescription>
+                      <CoursePrice>
+                        {course.money}
+                        <CourseCurrensy>{"uzs"}</CourseCurrensy>
+                      </CoursePrice>
+                    </CourseDiv>
+                  </CourseCardBottom>
+                </CourseCard>
+              </Link>
             </CourseContent>
           ))}
         </CourseWrapper>
