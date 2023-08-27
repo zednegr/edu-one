@@ -28,7 +28,7 @@ export const LoginWrapLeft = styled.div`
 
 `
 
-export const LoginWrapRight = styled.div`
+export const LoginWrapRight = styled.form`
     display: flex;
     align-items: center;
     flex-direction: column;
