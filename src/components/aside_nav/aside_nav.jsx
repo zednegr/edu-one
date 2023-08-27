@@ -11,6 +11,7 @@ import { Calendar } from 'primereact/calendar';
 import { RadioButton } from "primereact/radiobutton";
 import { FileUpload } from 'primereact/fileupload';
 import { Password } from 'primereact/password';
+import TeacherModal from "../teacher/teacher_modal/teacher_modal";
 
 
 function AsideNav(props) {
@@ -22,6 +23,8 @@ function AsideNav(props) {
     const [password, setPassword] = useState('')
     const [img, setImg] = useState('')
     const [visibleRight, setVisibleRight] = useState(false);
+
+    const [openModal, setOpenModal] = useState(false)
 
     const onUpload = () => {
         toast.current.show({ severity: 'info', summary: 'Success', detail: 'File Uploaded' });
@@ -64,10 +67,10 @@ function AsideNav(props) {
                 <AsideSize>{`miqdori - ${props.size}`}</AsideSize>
             </AsideWrap>
             <AsideButton>
-                <Button label={props.name} icon="pi pi-plus" size="small" color="#2F80ED" severity="info" rounded onClick={() => setVisibleRight(true)} />
+                <Button label={props.name} icon="pi pi-plus" size="small" color="#2F80ED" severity="info" rounded onClick={() => props.on == 'teacher' ? setOpenModal(true) : ''} />
             </AsideButton>
-            <Sidebar visible={visibleRight} position="right" style={{ width: '430px' }} onHide={() => setVisibleRight(false)} >
-                {/* <h2>Yangi o'qituvchi qo'shish</h2> */}
+            {/* <Sidebar visible={visibleRight} position="right" style={{ width: '430px' }} onHide={() => setVisibleRight(false)} >
+                <h2>Yangi o'qituvchi qo'shish</h2>
 
                 <FormWrapper>
                     <InputWrapper>
@@ -107,7 +110,8 @@ function AsideNav(props) {
                         <Button label="Qo'shish" severity="info" rounded onClick={onSubmitTeacher} />
                     </FormBtn>
                 </FormWrapper>
-            </Sidebar>
+            </Sidebar> */}
+            <TeacherModal open={openModal} setOpen={setOpenModal} />
         </Aside>
     )
 }

@@ -10,14 +10,19 @@ import "./style.css";
 import { Avatar } from "primereact/avatar";
 import { Badge } from "primereact/badge";
 import { Menu } from "primereact/menu";
+import useToken from "../../hooks/useToken.js";
 
 export default function Navbar() {
-  const menuRight = useRef(null);
-  const [loginOut, setLoginOut] = useState(false);
 
-  if (loginOut == true) {
-    return <Navigate to={"/login"} replace />;
-  }
+  const menuRight = useRef(null);
+  // const [loginOut, setLoginOut] = useState(false);
+
+  // if (loginOut == true) {
+  //   return <Navigate to={"/login"} replace />;
+  // }
+
+  const [, setToken] = useToken()
+
 
   const items = [
     {
@@ -45,7 +50,7 @@ export default function Navbar() {
           label: "Chiqish",
           icon: "pi pi-sign-out",
           command: (e) => {
-            setLoginOut(true);
+            setToken(false)
           },
         },
       ],

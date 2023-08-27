@@ -19,7 +19,7 @@ function Main() {
 
   return (
     <>
-      <AsideNav name={`O'qituvchilar`} size={'23'} />
+      <AsideNav name={`O'qituvchilar`} size={'23'} on={'teacher'} />
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '15px' }}>
         <TeacherCard />
       </div>
