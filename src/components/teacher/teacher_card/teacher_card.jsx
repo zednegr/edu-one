@@ -46,6 +46,8 @@ function TeacherCard() {
 
     console.log(data.length);
 
+    console.log('Hello');
+
     return (
         <>
             {
