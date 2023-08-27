@@ -3,7 +3,7 @@ import NavbarLeft from "../../components/navbar-left/navbar-left";
 import { useParams } from "react-router-dom";
 import Fixed from "../../components/fixed/fixed";
 
-export default function Courseinner() {
+function CourseInner() {
   return (
     <React.Fragment>
       <Fixed content={Main} />
@@ -17,3 +17,6 @@ function Main  ()  {
     </React.Fragment>
   );
 };
+
+
+export default CourseInner

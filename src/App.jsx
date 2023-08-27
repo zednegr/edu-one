@@ -20,7 +20,7 @@ import Teacher from "./pages/teachers/teachers";
 import RootLayout from "./layouts/rootLayout";
 import Groups from "./pages/groups/groups";
 import Courses from "./pages/courses/courses";
-import Courseinner from "./pages/courseinner/courseinner";
+import CourseInner from "./pages/courses_inner/course_inner";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -31,7 +31,7 @@ const router = createBrowserRouter(
         <Route path="teachers/list" element={<Teacher />} />
         <Route path="groups/list" element={<Groups />} />
         <Route path="courses/list" element={<Courses />} />
-        <Route path="courses/list/courseinner/:id" element={<Courseinner />} />
+        <Route path="courses/list/course_inner/:id" element={<CourseInner />} />
       </Route>
       <Route>
         <Route path="/login" element={<Login />} />
