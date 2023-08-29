@@ -12,6 +12,9 @@ import {
   CourseTitle,
   CourseWrap,
   CourseWrapper,
+  CourseImg,
+  CourseImgBox,
+  CourseColor,
 } from "./style";
 import { Kurs } from "./../../data/course-if-data";
 export default function Course() {
@@ -21,17 +24,22 @@ export default function Course() {
         <CourseWrapper>
           {Kurs.map((course, index) => (
             <CourseContent key={index}>
-              <Link to={`courseinner/${course.id}`}>
+              <Link to={`courseinner`}>
                 <CourseCard>
                   <CourseCardTop>
-                    <CourseTitle>{course.name}</CourseTitle>
+                    <CourseColor>
+                      <CourseImgBox>
+                        <CourseImg src={course.img} alt="This is a logo img" />
+                      </CourseImgBox>
+                      <CourseTitle>{course.name}</CourseTitle>
+                    </CourseColor>
                   </CourseCardTop>
                   <CourseCardBottom>
                     <CourseDiv>
-                      <CourseDescription>{course.name}</CourseDescription>
+                      <CourseDescription>{course.price}</CourseDescription>
                       <CoursePrice>
                         {course.money}
-                        <CourseCurrensy>{"uzs"}</CourseCurrensy>
+                        <CourseCurrensy>{"so'm"}</CourseCurrensy>
                       </CoursePrice>
                     </CourseDiv>
                   </CourseCardBottom>
