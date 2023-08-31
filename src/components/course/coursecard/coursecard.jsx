@@ -27,18 +27,20 @@ import {
 } from "./style";
 
 import { CourseCard } from "../../../data/course-if-card";
+import course_inner_skeleton from "./../../../skeleton/course-skeleton/course-inner/course-inner";
 
 export default function Coursecard() {
   const API = "https://64ec8fe5f9b2b70f2bfa8eb4.mockapi.io/person-detail";
 
-  const { isLoading, error, data } = useQuery("repoData", () => fetch(API).then((res) => res.json()));
+  const { isLoading, error, data } = useQuery("repoData", () =>
+    fetch(API).then((res) => res.json())
+  );
 
-  if (isLoading) return 'Loading...'
-  
-  if (error) return 'An error has occurred: ' + error.message
+  if (isLoading) return <course_inner_skeleton />;
+
+  if (error) return "An error has occurred: " + error.message;
 
   console.log(data);
-
 
   return (
     <React.Fragment>
@@ -53,7 +55,7 @@ export default function Coursecard() {
                 <GroupsDetailPerson>
                   <GroupsPersonAbout>
                     <GroupsIconDiv>
-                      <GroupsIcon
+                      <GroupsIconDiv
                         src={item.icon}
                         alt="This is a computer icon"
                       />
