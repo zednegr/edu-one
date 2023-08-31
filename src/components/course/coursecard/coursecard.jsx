@@ -1,9 +1,78 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import {
+  GropupsNameDiv,
+  Groups,
+  GroupsBottom,
+  GroupsContainer,
+  GroupsDate,
+  GroupsDay,
+  GroupsDetail,
+  GroupsDetailPerson,
+  GroupsIcon,
+  GroupsIconDiv,
+  GroupsName,
+  GroupsPersonAbout,
+  GroupsTime,
+  GroupsTimeContainer,
+  GroupsTimeDiv,
+  GroupsTimeNumber,
+  GroupsTitle,
+  GroupsTop,
+} from "./style";
+
+
+import { CourseCard } from "../../../data/course-if-card";
 
 export default function Coursecard() {
+
+const API = "https://64ec8fe5f9b2b70f2bfa8eb4.mockapi.io/person-detail";
+
+const [data, setData] = useState([ ]);
+
+useEffect(() => {
+  axios.get(API).then(res => console.log(res.data))
+ 
+ 
+}, []);
+
+
   return (
     <React.Fragment>
-      
+      <Groups>
+        <GroupsContainer>
+          <GroupsTop>
+            <GroupsTitle>{"grupalar"}</GroupsTitle>
+          </GroupsTop>
+          <GroupsBottom>
+            {data.map((item, index) => (
+              <GroupsDetail key={index}>
+                <GroupsDetailPerson>
+                  <GroupsPersonAbout>
+                    <GroupsIconDiv>
+                      <GroupsIcon
+                        src={item.icon}
+                        alt="This is a computer icon"
+                      />
+                    </GroupsIconDiv>
+                    <GropupsNameDiv>
+                      <GroupsName>{item.name}</GroupsName>
+                    </GropupsNameDiv>
+                  </GroupsPersonAbout>
+                  <GroupsTimeContainer>
+                    <GroupsDate>{item.date}</GroupsDate>
+                    <GroupsDay>{item.day}</GroupsDay>
+                    <GroupsTimeDiv>
+                      <GroupsTime>{"vaqt"}</GroupsTime>
+                      <GroupsTimeNumber>{item.time}</GroupsTimeNumber>
+                    </GroupsTimeDiv>
+                  </GroupsTimeContainer>
+                </GroupsDetailPerson>
+              </GroupsDetail>
+            ))}
+          </GroupsBottom>
+        </GroupsContainer>
+      </Groups>
     </React.Fragment>
-  )
+  );
 }
