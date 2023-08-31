@@ -76,7 +76,7 @@ export const GroupsIcon = styled.img`
   height: 14px;
   object-fit: contain;
 `;
-export const GropupsNameDiv = styled.div`
+export const GroupsNameDiv = styled.div`
   display: flex;
   width: 80%;
   padding-left: 10px;

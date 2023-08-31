@@ -1,9 +1,9 @@
 import React from "react";
 import Fixed from "../../../components/fixed/fixed";
-import { Kurs } from "./../../../data/course-if-data";
-import Coursecard from "../../../components/course/coursecard/coursecard";
+import { Kurs } from "../../../data/course-if-data";
+import CourseCard from "../../../components/course/course_card/course_card";
 import {
-  CourseCard,
+  CourseCard as CourseCardNew,
   CourseCardAbout,
   CourseCardBottom,
   CourseCardImg,
@@ -29,7 +29,7 @@ function Main() {
       <CourseInnerWrapper>
         <CourseInnerContainer>
           {Kurs.slice(0, 1).map((item, index) => (
-            <CourseCard key={index}>
+            <CourseCardNew key={index}>
               <CourseCardTop>
                 <CourseCardPicture>
                   <CourseCardImg
@@ -51,9 +51,9 @@ function Main() {
                   </CourseCardNumber>
                 </CourseCardAbout>
               </CourseCardBottom>
-            </CourseCard>
+            </CourseCardNew>
           ))}
-          <Coursecard/>
+          <CourseCard/>
         </CourseInnerContainer>
       </CourseInnerWrapper>
     </React.Fragment>

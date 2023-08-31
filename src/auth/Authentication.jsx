@@ -13,7 +13,7 @@ import Teacher from "../pages/teachers/teachers";
 import RootLayout from "../layouts/rootLayout";
 import Groups from "../pages/groups/groups";
 import Courses from "../pages/courses/courses";
-import CourseInner from "../pages/courses/coursesInner/courseInner";
+import CourseInner from "../pages/courses/courses_inner/course_inner";
 
 const router = createBrowserRouter(
   createRoutesFromElements(

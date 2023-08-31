@@ -6,7 +6,7 @@ import { useQuery } from "react-query";
 
 // Import styled components
 import {
-  GropupsNameDiv,
+  GroupsNameDiv,
   Groups,
   GroupsBottom,
   GroupsContainer,
@@ -26,17 +26,16 @@ import {
   GroupsTop,
 } from "./style";
 
-import { CourseCard } from "../../../data/course-if-card";
-import course_inner_skeleton from "./../../../skeleton/course-skeleton/course-inner/course-inner";
+// import { CourseCard  } from "../../../data/course-if-card";
 
-export default function Coursecard() {
+function CourseCard() {
   const API = "https://64ec8fe5f9b2b70f2bfa8eb4.mockapi.io/person-detail";
 
   const { isLoading, error, data } = useQuery("repoData", () =>
     fetch(API).then((res) => res.json())
   );
 
-  if (isLoading) return <course_inner_skeleton />;
+  if (isLoading) return <h1>Loading...</h1>
 
   if (error) return "An error has occurred: " + error.message;
 
@@ -60,9 +59,9 @@ export default function Coursecard() {
                         alt="This is a computer icon"
                       />
                     </GroupsIconDiv>
-                    <GropupsNameDiv>
+                    <GroupsNameDiv>
                       <GroupsName>{item.name}</GroupsName>
-                    </GropupsNameDiv>
+                    </GroupsNameDiv>
                   </GroupsPersonAbout>
                   <GroupsTimeContainer>
                     <GroupsDate>{item.date}</GroupsDate>
@@ -81,3 +80,6 @@ export default function Coursecard() {
     </React.Fragment>
   );
 }
+
+
+export default CourseCard
