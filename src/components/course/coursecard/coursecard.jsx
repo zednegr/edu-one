@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+
+//
+import { useQuery } from "react-query";
+
+// Import styled components
 import {
   GropupsNameDiv,
   Groups,
@@ -21,20 +26,18 @@ import {
   GroupsTop,
 } from "./style";
 
-
 import { CourseCard } from "../../../data/course-if-card";
 
 export default function Coursecard() {
+  const API = "https://64ec8fe5f9b2b70f2bfa8eb4.mockapi.io/person-detail";
 
-const API = "https://64ec8fe5f9b2b70f2bfa8eb4.mockapi.io/person-detail";
+  const { isLoading, error, data } = useQuery("repoData", () => fetch(API).then((res) => res.json()));
 
-const [data, setData] = useState([ ]);
+  if (isLoading) return 'Loading...'
+  
+  if (error) return 'An error has occurred: ' + error.message
 
-useEffect(() => {
-  axios.get(API).then(res => console.log(res.data))
- 
- 
-}, []);
+  console.log(data);
 
 
   return (
