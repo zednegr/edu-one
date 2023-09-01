@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 // Import styled components
 import {
+  TeacherModalBtn,
   TeacherModalInner,
   TeacherModalInnerMain,
   TeacherModalInnerTop,
@@ -15,8 +16,7 @@ import {
 import { InputText } from "primereact/inputtext";
 import { Calendar } from "primereact/calendar";
 import { InputMask } from "primereact/inputmask";
-import { Password } from 'primereact/password';
-
+import { Password } from "primereact/password";
 
 // Import Ant
 import { CloseCircleOutlined } from "@ant-design/icons";
@@ -27,10 +27,15 @@ import { Modal, Upload } from "antd";
 import { Radio } from "antd";
 
 function TeacherModal({ open, setOpen }) {
-  const [date, setDate] = useState(null);
   const [name, setName] = useState("");
-  const [value, setValue] = useState('');
+  const [tel, setTel] = useState("");
+  const [userDate, setUserDate] = useState("");
 
+
+  console.log(userDate);
+
+
+  const [value, setValue] = useState("");
 
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
@@ -70,8 +75,12 @@ function TeacherModal({ open, setOpen }) {
     </div>
   );
 
+  const handleChangeCalendar = (e) => {
+    const stringDate = new Date(e.target.value).toLocaleDateString()
+    setUserDate(stringDate)
+  }
+
   function handleClose(evt) {
-    console.log(evt.target);
     if (
       evt.target.matches("#modal") ||
       evt.target.matches("#modal_close_btn")
@@ -106,7 +115,7 @@ function TeacherModal({ open, setOpen }) {
           </TeacherModalLabel>
           <TeacherModalLabel>
             Tug’ilgan sana
-            <Calendar value={date} onChange={(e) => setDate(e.value)} />
+            <Calendar value={userDate} onChange={handleChangeCalendar} />
           </TeacherModalLabel>
           <TeacherModalLabel>
             Kim
@@ -132,7 +141,11 @@ function TeacherModal({ open, setOpen }) {
               footer={null}
               onCancel={handleCancel}
             >
-              <img alt="example" style={{ width: "100%" }} src={`previewImage`} />
+              <img
+                alt="example"
+                style={{ width: "100%" }}
+                src={`previewImage`}
+              />
             </Modal>
           </TeacherModalLabel>
           <TeacherModalLabel>
@@ -150,6 +163,7 @@ function TeacherModal({ open, setOpen }) {
               onChange={(e) => setName(e.target.value)}
             />
           </TeacherModalLabel>
+            <TeacherModalBtn>Yuborish</TeacherModalBtn>
         </TeacherModalInnerMain>
       </TeacherModalInner>
     </TeacherModalWrap>

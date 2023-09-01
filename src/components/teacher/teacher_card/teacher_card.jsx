@@ -44,10 +44,6 @@ function TeacherCard() {
 
     if (error) return 'An error has occurred: ' + error.message
 
-    console.log(data.length);
-
-    console.log('Hello');
-
     return (
         <>
             {

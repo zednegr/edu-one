@@ -20,7 +20,7 @@ export const TeacherModalWrap = styled.div`
 export const TeacherModalInner = styled.div`
 padding: 25px 30px;
     width: 450px;
-    height: 751px;
+    height: 765px;
     background-color: #fff;
     border-radius: 15px;
 `
@@ -46,7 +46,7 @@ export const TeacherModalInnerTopBtn = styled.button`
 export const TeacherModalInnerMain = styled.form`
    display: flex;
    flex-direction: column;
-   gap: 15px 0;
+   gap: 13px 0;
 `
 
 export const TeacherModalLabel = styled.label`
@@ -59,5 +59,20 @@ export const TeacherModalLabel = styled.label`
     text-transform: capitalize;
 `
 
+export const TeacherModalBtn = styled.button`
+    margin-top: 5px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.20);
+    transition: all 0.5s ease;
 
+    &:hover {
+        color: #fff;
+        background-color: #3B82F6;
+    }
 
+    &:active {
+        opacity: 0.6;
+    }
+`
