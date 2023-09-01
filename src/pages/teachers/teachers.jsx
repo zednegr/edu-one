@@ -7,7 +7,6 @@ import TeacherCard from "../../components/teacher/teacher_card/teacher_card"
 
 function Teacher() {
 
-
   return (
     <>
       <Fixed content={<Main />} />

@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 
 import { useQuery } from 'react-query'
 
@@ -10,12 +10,13 @@ import { Button } from 'primereact/button';
 import { Menu } from 'primereact/menu';
 
 import { Skeleton } from 'antd';
-
+import { useAddTeacherData, useFetchTeacherData } from "../../../api/useTeacherApi";
 
 
 function TeacherCard() {
 
     const menuRight = useRef(null);
+
 
     const items = [
         {
@@ -34,20 +35,18 @@ function TeacherCard() {
         }
     ];
 
-    const { isLoading, error, data } = useQuery('repoData', () =>
-        fetch('https://64ca7e11700d50e3c704fadc.mockapi.io/edu').then(res =>
-            res.json()
-        )
-    )
-
+    const {isLoading, isError, data, error} = useFetchTeacherData()
+ 
     if (isLoading) return <Skeleton />
 
     if (error) return 'An error has occurred: ' + error.message
 
+    console.log(data.data);
+
     return (
         <>
             {
-                data.map(item => {
+                data.data.map(item => {
                     return (
                         <TeacherCardWrap key={item.id} className="card" tooltipOptions={{ position: 'bottom', mouseTrack: true, mouseTrackTop: 15 }}>
                             <TeacherCardBox>
@@ -56,9 +55,7 @@ function TeacherCard() {
                                     <TeacherCardName>{item.name}</TeacherCardName>
                                     <TeacherCardJob>Frontend</TeacherCardJob>
                                 </TeacherCardCon>
-
                             </TeacherCardBox>
-
 
                             <Button icon="pi pi-ellipsis-h teacher-set" style={{ boxShadow: 'none', color: '#C3CAD9', width: '40px', height: '40px' }} rounded text aria-label="Cancel" onClick={(event) => menuRight.current.toggle(event)} />
                             <Menu model={items} popup ref={menuRight} style={{ width: '150px', color: 'red' }} />
@@ -71,4 +68,4 @@ function TeacherCard() {
     )
 }
 
-export default TeacherCard
+export default memo(TeacherCard)

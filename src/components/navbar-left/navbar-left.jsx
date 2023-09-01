@@ -6,9 +6,9 @@ function NavbarLeft() {
   return (
     <NavLeft>
       <NavLeftList>
-        {navbar_lf_data.map((item) => {
+        {navbar_lf_data.map((item, index) => {
           return (
-            <NavLink to={item.link}>
+            <NavLink to={item.link} key={index}>
               <NavLeftItem>
                 <i className={item.img} style={{ color: "slateblue" }}></i>
                 <NavLeftItemText>{item.name}</NavLeftItemText>

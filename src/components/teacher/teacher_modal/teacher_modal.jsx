@@ -1,4 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+
+// Add Teacher APi
+import { useAddTeacherData } from "../../../api/useTeacherApi";
 
 // Import styled components
 import {
@@ -23,19 +26,47 @@ import { CloseCircleOutlined } from "@ant-design/icons";
 import { Input } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { Modal, Upload } from "antd";
-
 import { Radio } from "antd";
+import { Spin } from 'antd';
+
 
 function TeacherModal({ open, setOpen }) {
+
+  // Input States
   const [name, setName] = useState("");
   const [tel, setTel] = useState("");
-  const [userDate, setUserDate] = useState("");
+  const [userDate, setUserDate] = useState(new Date().toLocaleDateString('fr-FR'));
+  const [userDateValue, setUserDataValue] = useState("");
+  const [userJob, setUserJob] = useState("");
+  const [userJn, setUserJn] = useState("");
+  const [userPassword, setUserPassword] = useState("") 
 
+  const [loading, setLoading] = useState(false)
 
-  console.log(userDate);
+  const {mutate: addTeacher, isLoading, variables} = useAddTeacherData();
+  
+  function onTeacherDataSubmit(e) {
+    e.preventDefault()
 
+    setLoading(true)
 
-  const [value, setValue] = useState("");
+    const data = {
+      'name': name,
+      'tel': tel, 
+      'birthday': userDate,
+      'who': userJob,
+      'gens': userJn,
+      'password': userPassword
+    }
+
+    addTeacher(data)
+  }
+
+  // if(status == "success") {
+  //   setOpen(false)
+  // }
+
+  console.log(variables);
 
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
@@ -48,7 +79,7 @@ function TeacherModal({ open, setOpen }) {
       reader.readAsDataURL(file);
       reader.onload = () => resolve(reader.result);
       reader.onerror = (error) => reject(error);
-    });
+  });
 
   const handleCancel = () => setPreviewOpen(false);
   const handlePreview = async (file) => {
@@ -61,6 +92,7 @@ function TeacherModal({ open, setOpen }) {
       file.name || file.url.substring(file.url.lastIndexOf("/") + 1)
     );
   };
+  
   const handleChange = ({ fileList: newFileList }) => setFileList(newFileList);
   const uploadButton = (
     <div>
@@ -76,8 +108,9 @@ function TeacherModal({ open, setOpen }) {
   );
 
   const handleChangeCalendar = (e) => {
-    const stringDate = new Date(e.target.value).toLocaleDateString()
+    const stringDate = new Date(e.target.value).toLocaleDateString('fr-FR')
     setUserDate(stringDate)
+    setUserDataValue(e.target.value)
   }
 
   function handleClose(evt) {
@@ -111,18 +144,18 @@ function TeacherModal({ open, setOpen }) {
           </TeacherModalLabel>
           <TeacherModalLabel>
             Telfon
-            <InputMask mask="99-999-99-99" placeholder="" />
+            <InputMask mask="99-999-99-99" onChange={(e) => setTel(e.target.value)} />
           </TeacherModalLabel>
           <TeacherModalLabel>
             Tug’ilgan sana
-            <Calendar value={userDate} onChange={handleChangeCalendar} />
+            <Calendar value={userDateValue} onChange={handleChangeCalendar} />
           </TeacherModalLabel>
           <TeacherModalLabel>
             Kim
             <InputText
               className="form-input"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={userJob}
+              onChange={(e) => setUserJob(e.target.value)}
             />
           </TeacherModalLabel>
           <TeacherModalLabel>
@@ -150,20 +183,21 @@ function TeacherModal({ open, setOpen }) {
           </TeacherModalLabel>
           <TeacherModalLabel>
             Jins
-            <Radio.Group defaultValue="" buttonStyle="solid" size="large">
-              <Radio.Button value="a">Erkak</Radio.Button>
-              <Radio.Button value="b">Ayol</Radio.Button>
+            <Radio.Group defaultValue="" buttonStyle="solid" size="large" onChange={(e) => setUserJn(e.target.value)}>
+              <Radio.Button value="erkak">Erkak</Radio.Button>
+              <Radio.Button value="ayol">Ayol</Radio.Button>
             </Radio.Group>
           </TeacherModalLabel>
           <TeacherModalLabel>
             Parol
             <InputText
               className="form-input"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
+              value={userPassword}
+              onChange={(e) => setUserPassword(e.target.value)}
             />
           </TeacherModalLabel>
-            <TeacherModalBtn>Yuborish</TeacherModalBtn>
+            <TeacherModalBtn onClick={onTeacherDataSubmit}>{isLoading ? `loading` : 'Yuborish'}</TeacherModalBtn>
+  
         </TeacherModalInnerMain>
       </TeacherModalInner>
     </TeacherModalWrap>
