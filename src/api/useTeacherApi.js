@@ -13,6 +13,15 @@ const fetchTeacherData = () => {
     return axios.get('https://64ca7e11700d50e3c704fadc.mockapi.io/edu')
 }
 
+export const deleteTeacher = (userId) => {
+    return axios.delete(`https://64ca7e11700d50e3c704fadc.mockapi.io/edu/${userId}`)
+}
+
+export const useDeleteTeacher = () => {
+    const queryClient = useQueryClient()
+    return useQuery(['delete-teacher', userId], () => deleteTeacher())
+}
+
 export const useFetchTeacherData = () => {
     return useQuery('teacher-data', fetchTeacherData)
 }
@@ -22,6 +31,7 @@ export const useAddTeacherData = () => {
     return useMutation(createTeacherPost, {
         onSuccess: () => {
             queryClient.invalidateQueries('teacher-data')
+            queryClient.invalidateQueries('delete-teacher')
         }
     })
 }
