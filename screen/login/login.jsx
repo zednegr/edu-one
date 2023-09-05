@@ -1,38 +1,34 @@
-import { useState } from "react";
-
+// Import Styled components
 import { LoginButton, LoginImg, LoginInputWrap, LoginTitle, LoginWrap, LoginWrapLeft, LoginWrapRight, LoginWrapper } from "./Style";
 
+// Import La
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
 import { Input } from 'antd';
-import { UserOutlined } from '@ant-design/icons';
 
+// Import Custom Hooks
 import useToken from "../../src/hooks/useToken";
 
+// Import Img
 import LogoImg from "../../src/assets/logobek.jpg"
+import { useContext } from "react";
+import { Context } from "../../src/context/authState";
+import { Navigate } from "react-router-dom";
 
 export default function Login() {
 
-    const [, setToken] = useToken()
+    const {loginUser, authToken} = useContext(Context)
 
-    const [passwordVisible, setPasswordVisible] = useState(false);
-
-    function handleSubmit(evt) {
-        evt.preventDefault() 
-
-        const {username, password} = evt.target.elements
-
-        setToken({
-            username: username.value,
-            password: password.value
-        })
+    if(authToken) {
+        return <Navigate to={'/'} /> 
     }
+    // console.log(loginUser(e));
 
     return (
         <>
             <LoginWrapper>
                 <LoginWrap>
                     <LoginWrapLeft />
-                    <LoginWrapRight onSubmit={handleSubmit}>
+                    <LoginWrapRight onSubmit={(e) => loginUser(e)}>
                         <LoginImg src={LogoImg} width={150} height={70} />
                         <LoginInputWrap>
                             <Input size="large" placeholder="Login" name="username" />

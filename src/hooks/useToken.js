@@ -4,7 +4,9 @@ import { Context } from "../context/authState";
 function useToken() {
     const ctx = useContext(Context);
 
-    return [ctx.state, ctx.setState]
+    console.log();
+
+    return [ctx.state]
 } 
 
 export default useToken

@@ -3,6 +3,7 @@ import {
   createRoutesFromElements,
   Route,
   RouterProvider,
+  Routes,
 } from "react-router-dom";
 
 // *Pages
@@ -14,24 +15,26 @@ import RootLayout from "../layouts/rootLayout";
 import Groups from "../pages/groups/groups";
 import Courses from "../pages/courses/courses";
 import CourseInner from "../pages/courses/courses_inner/course_inner";
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route>
-      <Route path="/" element={<RootLayout />}>
-        <Route index element={<Home />} />
-        <Route path="students/list" element={<Students />} />
-        <Route path="teachers/list" element={<Teacher />} />
-        <Route path="groups/list" element={<Groups />} />
-        <Route path="courses/list" element={<Courses />} />
-        <Route path="courses/list/courseinner" element={<CourseInner />} />
-      </Route>
-    </Route>
-  )
-);
+import ProtectedRoute from "./ProtectedRoute";
 
 function Authentication() {
-  return <RouterProvider router={router} />;
+  return (
+    <Routes>
+        <Route path="/" element={
+          <ProtectedRoute>
+            <RootLayout />
+          </ProtectedRoute>
+        }>
+          <Route index element={<Home />} />
+          <Route path="students/list" element={<Students />} />
+          <Route path="teachers/list" element={<Teacher />} />
+          <Route path="groups/list" element={<Groups />} />
+          <Route path="courses/list" element={<Courses />} />
+          <Route path="courses/list/courseinner" element={<CourseInner />} />
+        </Route>
+      <Route path="/login" element={<Login />} />
+    </Routes>
+  );
 }
 
 export default Authentication;
