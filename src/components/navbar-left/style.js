@@ -5,6 +5,13 @@ export const NavLeft = styled.nav`
    height: 88%;
    background-color: #fff;
    border-radius: 14px;
+   z-index: 111;
+
+   @media only screen and (max-width: 1000px) {
+      bottom: 20px;
+      width: 97%;
+      height: 100px;
+   }
 `
 export const NavLeftList = styled.ul`
    display: flex;
@@ -22,6 +29,11 @@ export const NavLeftList = styled.ul`
     div{
         color:#2F80ED !important;
     }
+   }
+
+   @media only screen and (max-width: 1000px) {
+       flex-direction: row;
+       justify-content: space-around;
    }
 `
 

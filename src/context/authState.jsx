@@ -3,12 +3,51 @@ import { createContext, useState, useEffect, useMemo } from "react";
 //Import library I
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { loginPost, useCreateToken } from "../api/useLogin";
 
 const Context = createContext();
 
 function Provider({ children }) {
-  const navigate = useNavigate()
-  const [token, setToken] = useState(localStorage.getItem('token'));
+
+  const navigate = useNavigate();
+
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [loginResponse, setLoginResponse] = useState()
+  const [loading, setLoading] = useState(false)
+
+  const loginUser = async (e) => {
+    e.preventDefault();
+
+    setLoading(true)
+
+    const { username, password } = e.target.elements;
+
+
+    try {
+      const res = await axios.post("http://esystem.uz/account/log-in/", {
+        username: username.value,
+        password: password.value,
+      });
+
+      if (res.data || res.status == 200) {
+
+        username.value = ''
+        password.value = ''
+
+        localStorage.setItem("token", res.data.access);
+        setToken(res.data.access);
+        setLoading(false)
+        navigate("/");
+      }
+    } catch (error) {
+
+      username.value
+      password.value = ''
+
+      setLoginResponse(error)
+      setLoading(false)
+    }
+  };
 
   useEffect(() => {
     verifyToken()
@@ -23,51 +62,28 @@ function Provider({ children }) {
           setToken(null)
           navigate('/login')
        }
-
-       console.log(res);
     } catch(error) {
-       console.log(error);
        localStorage.removeItem('token')
        setToken(null)
        navigate('/login')
     }
   }
 
-  const loginUser = async (e) => {
-    e.preventDefault()
-
-    const {username, password} = e.target.elements
-
-    const res = await axios.post('http://esystem.uz/account/log-in/', {username: username.value, password: password.value})  
-
-    console.log(res);
-
-    if(res.data || res.status == 200) {
-        localStorage.setItem('token', res.data.access)
-        setToken(res.data.access)
-        navigate('/')
-    }
-
-  }
-
   let logOut = () => {
-    setToken(null)
-    localStorage.removeItem('token')
-    
-  }
+    setToken(null);
+    localStorage.removeItem("token");
+  };
 
   let authContextData = {
     loginUser: loginUser,
     authToken: token,
-    // logOut: logOut,
-  }
+    loginRes: loginResponse,
+    loading: loading
+  };
 
-      
-  return(
-    <Context.Provider value={authContextData}>
-        {children}
-    </Context.Provider>
-  )
+  return (
+    <Context.Provider value={authContextData}>{children}</Context.Provider>
+  );
 }
 
 export { Context, Provider };
