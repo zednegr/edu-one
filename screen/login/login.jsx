@@ -14,8 +14,6 @@ import { useContext } from "react";
 import { Context } from "../../src/context/authState";
 import { Navigate } from "react-router-dom";
 
-
-
 export default function Login() {
 
     const {loginUser, authToken, loading, contextHolder, loginInputValid} = useContext(Context)

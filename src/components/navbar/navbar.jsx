@@ -10,12 +10,14 @@ import "./style.css";
 import { Avatar } from "primereact/avatar";
 import { Badge } from "primereact/badge";
 import { Menu } from "primereact/menu";
-import useToken from "../../hooks/useToken.js";
+
 import { Context } from "../../context/authState.jsx";
+import useLang from "../../hooks/useLang.js";
 
 export default function Navbar() {
 
   const {logOut} = useContext(Context)
+  const [lang, setLang] = useLang()
 
   const menuRight = useRef(null);
   const menuLanguage = useRef(null);
@@ -26,9 +28,6 @@ export default function Navbar() {
   // if (loginOut == true) {
   //   return <Navigate to={"/login"} replace />;
   // }
-
-  const [, setToken] = useToken()
-
 
   const items = [
     {
@@ -64,23 +63,27 @@ export default function Navbar() {
   ];
 
   const language = [
-    {
-      label: "Navigate",
-      items: [
         {
-          label: "Website It-Station",
-          icon: "pi pi-external-link",
-          url: "http://www.itstation.uz/",
-        },
-        {
-          label: "Chiqish",
-          icon: "pi pi-sign-out",
+          label: "English",
+          icon: "pi pi-language",
           command: (e) => {
-            logOut()
+            setLang('en')
           },
         },
-      ],
-    },
+        {
+          label: "Русский",
+          icon: "pi pi-language",
+          command: (e) => {
+            setLang('ru')
+          },
+        },
+        {
+          label: "O`zbekcha",
+          icon: "pi pi-language",
+          command: (e) => {
+            setLang('uz')
+          },
+        },     
   ];
 
   return (
@@ -91,7 +94,7 @@ export default function Navbar() {
           className="pi pi-language
           p-overlay-badge"
           style={{ fontSize: "1.2rem" }} 
-          onClick={(e) =>  menuRight.current.toggle(e)}></i>
+          onClick={(e) =>  menuLanguage.current.toggle(e)}></i>
 
         <i
           className="pi pi-bell p-overlay-badge"
@@ -100,7 +103,7 @@ export default function Navbar() {
         </i>
 
         <i
-          className="pi pi-envelope p-overlay-badge"
+          className="pi pi-inbox p-overlay-badge"
           style={{ fontSize: "1.2rem" }}>
           <Badge severity="danger"></Badge>
         </i>

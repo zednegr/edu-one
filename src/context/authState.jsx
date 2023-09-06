@@ -23,14 +23,14 @@ function Provider({ children }) {
   const errorLogin = () => {
     messageApi.open({
       type: 'error',
-      content: 'User name yoki parol xato kritildi',
+      content: 'User name yoki parol xato kritildi 🙅‍♂️',
     });
   };
 
   const warningLogin = () => {
     messageApi.open({
       type: 'warning',
-      content: 'Login bilan parolni kriting',
+      content: 'Login bilan parolni kriting 🤦‍♂️',
     });
   };
 

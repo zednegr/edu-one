@@ -7,7 +7,6 @@ import "primereact/resources/primereact.min.css";
 
 import Authentication from "./auth/Authentication";
 
-
 function App() {
     return <Authentication />
 }

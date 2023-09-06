@@ -1,10 +1,12 @@
 import { styled } from "styled-components";
 
+
 export const LoginWrapper = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 85vh;
+    height: 100vh;
+    margin-top: -70px;
 `
 
 export const LoginWrap = styled.div`
@@ -13,6 +15,19 @@ export const LoginWrap = styled.div`
     height: 550px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 10px;
+
+    @media only screen and (max-width: 765px) {
+        width: 550px;
+    }
+
+    @media only screen and (max-width: 570px) {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    @media only screen and (max-width: 425px) {
+        height: 450px;
+    }
 `
 
 export const LoginWrapLeft = styled.div`
@@ -21,6 +36,11 @@ export const LoginWrapLeft = styled.div`
     background: url("https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw4MHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60") no-repeat;
     background-size: cover;
     border-radius: 10px 0 0 10px;
+
+    @media only screen and (max-width: 765px) {
+        display: none;
+        width: 550px;
+    }
 `
 
 export const LoginWrapRight = styled.form`
@@ -32,6 +52,20 @@ export const LoginWrapRight = styled.form`
     height: 550px;
     background-color: #fff;
     border-radius: 0 10px 10px 0;
+
+    @media only screen and (max-width: 765px) {
+        width: 100%;
+        padding: 0 70px;
+    }
+
+    @media only screen and (max-width: 425px) {
+        padding: 0 50px;
+    }
+
+    @media only screen and (max-width: 425px) {
+        height: 450px;
+        padding: 0 30px;
+    }
 `
 
 export const LoginImg = styled.img`
@@ -43,6 +77,10 @@ export const LoginInputWrap = styled.div`
 
     & + & {
         margin-top: 20px;
+    }
+
+    @media only screen and (max-width: 765px) {
+        width: 100%;
     }
 `
 
@@ -64,5 +102,9 @@ export const LoginButton = styled.button`
 
     &:active {
         opacity: 0.6;
+    }
+
+    @media only screen and (max-width: 765px) {
+        width: 100%;
     }
 `
