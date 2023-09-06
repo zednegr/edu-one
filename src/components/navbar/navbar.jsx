@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useContext, useRef, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import { Nav, NavLogo, NavRight } from "./style.js";
 
@@ -11,10 +11,15 @@ import { Avatar } from "primereact/avatar";
 import { Badge } from "primereact/badge";
 import { Menu } from "primereact/menu";
 import useToken from "../../hooks/useToken.js";
+import { Context } from "../../context/authState.jsx";
 
 export default function Navbar() {
 
+  const {logOut} = useContext(Context)
+
   const menuRight = useRef(null);
+
+  const navigate = useNavigate()
   // const [loginOut, setLoginOut] = useState(false);
 
   // if (loginOut == true) {
@@ -50,7 +55,7 @@ export default function Navbar() {
           label: "Chiqish",
           icon: "pi pi-sign-out",
           command: (e) => {
-            setToken(false)
+            logOut()
           },
         },
       ],

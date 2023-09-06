@@ -22,7 +22,6 @@ function Provider({ children }) {
 
     const { username, password } = e.target.elements;
 
-
     try {
       const res = await axios.post("http://esystem.uz/account/log-in/", {
         username: username.value,
@@ -30,10 +29,6 @@ function Provider({ children }) {
       });
 
       if (res.data || res.status == 200) {
-
-        username.value = ''
-        password.value = ''
-
         localStorage.setItem("token", res.data.access);
         setToken(res.data.access);
         setLoading(false)
@@ -61,7 +56,7 @@ function Provider({ children }) {
           localStorage.removeItem('token')
           setToken(null)
           navigate('/login')
-       }
+        }
     } catch(error) {
        localStorage.removeItem('token')
        setToken(null)
@@ -72,13 +67,15 @@ function Provider({ children }) {
   let logOut = () => {
     setToken(null);
     localStorage.removeItem("token");
+    navigate('/login')
   };
 
   let authContextData = {
     loginUser: loginUser,
     authToken: token,
     loginRes: loginResponse,
-    loading: loading
+    loading: loading,
+    logOut: logOut
   };
 
   return (
