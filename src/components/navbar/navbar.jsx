@@ -18,6 +18,7 @@ export default function Navbar() {
   const {logOut} = useContext(Context)
 
   const menuRight = useRef(null);
+  const menuLanguage = useRef(null);
 
   const navigate = useNavigate()
   // const [loginOut, setLoginOut] = useState(false);
@@ -62,23 +63,50 @@ export default function Navbar() {
     },
   ];
 
+  const language = [
+    {
+      label: "Navigate",
+      items: [
+        {
+          label: "Website It-Station",
+          icon: "pi pi-external-link",
+          url: "http://www.itstation.uz/",
+        },
+        {
+          label: "Chiqish",
+          icon: "pi pi-sign-out",
+          command: (e) => {
+            logOut()
+          },
+        },
+      ],
+    },
+  ];
+
   return (
     <Nav>
       <NavLogo src={Logo} />
       <NavRight>
+       <i
+          className="pi pi-language
+          p-overlay-badge"
+          style={{ fontSize: "1.2rem" }} 
+          onClick={(e) =>  menuRight.current.toggle(e)}></i>
+
         <i
           className="pi pi-bell p-overlay-badge"
-          style={{ fontSize: "1.2rem" }}
-        >
+          style={{ fontSize: "1.2rem" }}>
           <Badge value="2" severity="info"></Badge>
         </i>
+
         <i
           className="pi pi-envelope p-overlay-badge"
-          style={{ fontSize: "1.2rem" }}
-        >
+          style={{ fontSize: "1.2rem" }}>
           <Badge severity="danger"></Badge>
         </i>
+
         <i className="pi pi-cog" style={{ fontSize: "1.3rem" }}></i>
+        
         <Avatar
           className="p-overlay-badge nav-avatar"
           icon="pi pi-user"
@@ -89,6 +117,13 @@ export default function Navbar() {
           model={items}
           popup
           ref={menuRight}
+          id="popup_menu_right"
+          popupAlignment="right"
+        />
+        <Menu
+          model={language}
+          popup
+          ref={menuLanguage}
           id="popup_menu_right"
           popupAlignment="right"
         />

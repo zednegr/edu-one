@@ -16,6 +16,7 @@ function Provider({ children }) {
   const [loading, setLoading] = useState(false)
 
   const [messageApi, contextHolder] = message.useMessage();
+  const [loginInputValid, setLoginInputValid] = useState(null)
 
   const navigate = useNavigate();
 
@@ -26,6 +27,13 @@ function Provider({ children }) {
     });
   };
 
+  const warningLogin = () => {
+    messageApi.open({
+      type: 'warning',
+      content: 'Login bilan parolni kriting',
+    });
+  };
+
   const loginUser = async (e) => {
     e.preventDefault();
 
@@ -33,21 +41,32 @@ function Provider({ children }) {
 
     const { username, password } = e.target.elements;
 
-    try {
-      const res = await axios.post("http://esystem.uz/account/log-in/", {
-        username: username.value,
-        password: password.value,
-      });
-
-      if (res.data || res.status == 200) {
-        localStorage.setItem("token", res.data.access);
-        setToken(res.data.access);
-        setLoading(false)
-        navigate("/");
-      }
-    } catch (error) {
+    if(username.value == '', password.value == '') {
+      warningLogin()
       setLoading(false)
-      errorLogin()
+      setLoginInputValid('warning')
+
+    } else {
+      try {
+        const res = await axios.post("http://esystem.uz/account/log-in/", {
+          username: username.value,
+          password: password.value,
+        });
+  
+        if (res.data || res.status == 200) {
+          localStorage.setItem("token", res.data.access);
+          setToken(res.data.access);
+          setLoading(false)
+          setLoginInputValid('access')
+          navigate("/");
+        }
+      } catch (error) {
+        setLoading(false)
+        errorLogin()
+        setLoginInputValid('error')
+      }
+
+    
     }
   };
 
@@ -86,6 +105,7 @@ function Provider({ children }) {
     loading: loading,
     logOut: logOut,
     contextHolder: contextHolder,
+    loginInputValid: loginInputValid,
   };
 
   return (

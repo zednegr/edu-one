@@ -18,7 +18,7 @@ import { Navigate } from "react-router-dom";
 
 export default function Login() {
 
-    const {loginUser, authToken, loading, contextHolder} = useContext(Context)
+    const {loginUser, authToken, loading, contextHolder, loginInputValid} = useContext(Context)
     const toast = useRef(null);
 
     if(authToken) {
@@ -34,12 +34,22 @@ export default function Login() {
                     <LoginWrapRight onSubmit={(e) => loginUser(e)}>
                         <LoginImg src={LogoImg} width={150} height={70} />
                         <LoginInputWrap>
-                            <Input size="large" placeholder="Login" name="username" />
+                            <Input 
+                                size="large" 
+                                placeholder="Login" 
+                                name="username" 
+                                status={loginInputValid == 'access' ? null : 
+                                        loginInputValid == 'error' ? 'error' :  
+                                        loginInputValid == 'warning' ? 'warning' : null}
+                             />
                         </LoginInputWrap>
                         <LoginInputWrap>
                             <Input.Password
                                 name="password"
                                 placeholder="Password"
+                                status={loginInputValid == 'access' ? null :
+                                        loginInputValid == 'error' ? 'error' :
+                                        loginInputValid == 'warning' ? 'warning' : null}
                                 size="large"
                                 iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                             />
