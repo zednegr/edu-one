@@ -5,15 +5,26 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { loginPost, useCreateToken } from "../api/useLogin";
 
+import { Button, message, Space } from 'antd';
+
+
 const Context = createContext();
 
 function Provider({ children }) {
 
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [loading, setLoading] = useState(false)
+
+  const [messageApi, contextHolder] = message.useMessage();
+
   const navigate = useNavigate();
 
-  const [token, setToken] = useState(localStorage.getItem("token"));
-  const [loginResponse, setLoginResponse] = useState()
-  const [loading, setLoading] = useState(false)
+  const errorLogin = () => {
+    messageApi.open({
+      type: 'error',
+      content: 'User name yoki parol xato kritildi',
+    });
+  };
 
   const loginUser = async (e) => {
     e.preventDefault();
@@ -35,12 +46,8 @@ function Provider({ children }) {
         navigate("/");
       }
     } catch (error) {
-
-      username.value
-      password.value = ''
-
-      setLoginResponse(error)
       setLoading(false)
+      errorLogin()
     }
   };
 
@@ -57,6 +64,9 @@ function Provider({ children }) {
           setToken(null)
           navigate('/login')
         }
+
+       setLoading(false)
+
     } catch(error) {
        localStorage.removeItem('token')
        setToken(null)
@@ -73,9 +83,9 @@ function Provider({ children }) {
   let authContextData = {
     loginUser: loginUser,
     authToken: token,
-    loginRes: loginResponse,
     loading: loading,
-    logOut: logOut
+    logOut: logOut,
+    contextHolder: contextHolder,
   };
 
   return (

@@ -1,18 +1,12 @@
 import React, { useRef } from 'react';
 
 // Import Styled components
-import { LoginButton, LoginImg, LoginInputWrap, LoginTitle, LoginWrap, LoginWrapLeft, LoginWrapRight, LoginWrapper } from "./Style";
+import { LoginButton, LoginImg, LoginInputWrap, LoginWrap, LoginWrapLeft, LoginWrapRight, LoginWrapper } from "./Style";
 
 // Import La
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import { Input } from 'antd';
+import { Input, Spin } from 'antd';
 
-// PrimeReact
-import { Button } from 'primereact/button';
-import { Toast } from 'primereact/toast';
-
-// Import Custom Hooks
-import useToken from "../../src/hooks/useToken";
 
 // Import Img
 import LogoImg from "../../src/assets/logobek.jpg"
@@ -24,26 +18,16 @@ import { Navigate } from "react-router-dom";
 
 export default function Login() {
 
-    const {loginUser, authToken, loginRes, loading} = useContext(Context)
+    const {loginUser, authToken, loading, contextHolder} = useContext(Context)
     const toast = useRef(null);
-
-    const showError = () => {
-        toast.current.show({severity:'error', summary: 'Error', detail:'Telefon raqam yoki parol notogri', life: 3000});
-    }
 
     if(authToken) {
         return <Navigate to={'/'} /> 
-    } else if (loginRes?.response?.status == 401) {
-        showError()
     }
-    
-    const showSuccess = () => {
-        toast.current.show({severity:'success', summary: 'Success', detail:'Message Content', life: 3000});
-    }   
 
     return (
         <>
-            <Toast ref={toast} />
+        {contextHolder}
             <LoginWrapper>
                 <LoginWrap>
                     <LoginWrapLeft />
@@ -60,7 +44,7 @@ export default function Login() {
                                 iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                             />
                         </LoginInputWrap>
-                        <LoginButton>{loading ? 'loading...' : 'Login'}</LoginButton>
+                        <LoginButton>{loading ? <Spin /> : 'Login'}</LoginButton>
                     </LoginWrapRight>
                 </LoginWrap>
             </LoginWrapper>

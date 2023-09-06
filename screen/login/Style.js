@@ -1,31 +1,26 @@
 import { styled } from "styled-components";
 
 export const LoginWrapper = styled.section`
-display: flex;
-align-items: center;
-justify-content: center;
-height: 85vh;
-
-
-     /* width: 100%;
-     height: 100vh; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
 `
 
 export const LoginWrap = styled.div`
     display: flex;
-    width: 900px;
-    height: 600px;
+    width: 750px;
+    height: 550px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-    border-radius: 6px;
+    border-radius: 10px;
 `
 
 export const LoginWrapLeft = styled.div`
-    width: 400px;
-    height: 600px;
+    width: 300px;
+    height: 550px;
     background: url("https://images.unsplash.com/photo-1661956602139-ec64991b8b16?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxlZGl0b3JpYWwtZmVlZHw4MHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=60") no-repeat;
     background-size: cover;
-    border-radius: 6px 0 0 6px;
-
+    border-radius: 10px 0 0 10px;
 `
 
 export const LoginWrapRight = styled.form`
@@ -33,22 +28,14 @@ export const LoginWrapRight = styled.form`
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    width: 500px;
-    height: 600px;
+    width: 450px;
+    height: 550px;
     background-color: #fff;
+    border-radius: 0 10px 10px 0;
 `
 
 export const LoginImg = styled.img`
     margin-bottom: 20px;
-`
-
-export const LoginTitle = styled.div`
-     margin: 15px 0;
-     text-align: start;
-    /* width: 55%; */
-
-     font-size: 24px;
-     font-weight: 600;
 `
 
 export const LoginInputWrap = styled.div`

@@ -32,6 +32,7 @@ function Authentication() {
           <Route path="courses/list" element={<Courses />} />
           <Route path="courses/list/courseinner" element={<CourseInner />} />
         </Route>
+      {/* <Route path="*" element={<RootLayout />} /> */}
       <Route path="/login" element={<Login />} />
     </Routes>
   );
