@@ -1,16 +1,18 @@
 import { useQuery, useMutation, useQueryClient } from "react-query";
 import axios from "axios";
-import { useState } from "react";
 
-// const API = process.env.REACT_APP_API_KEY
+import useAxios from "./useAxios";
 
+// const newAxios = useAxios()
 
-const createTeacherPost = (body) => {
-    return axios.post('https://64ca7e11700d50e3c704fadc.mockapi.io/edu', body)
+// Fetching Teacher Data
+const fetchTeacherData = () => {
+    return axios.get('http://esystem.uz/api/employee/')
 }
 
-const fetchTeacherData = () => {
-    return axios.get('https://64ca7e11700d50e3c704fadc.mockapi.io/edu')
+// Delete Teacher
+export const useFetchTeacherData = () => {
+    return useQuery('teacher-data', fetchTeacherData)
 }
 
 export const deleteTeacher = (userId) => {
@@ -22,8 +24,9 @@ export const useDeleteTeacher = () => {
     return useQuery(['delete-teacher', userId], () => deleteTeacher())
 }
 
-export const useFetchTeacherData = () => {
-    return useQuery('teacher-data', fetchTeacherData)
+// Create Teacher 
+const createTeacherPost = (body) => {
+    return axios.post('http://esystem.uz/api/employee-create/', body)
 }
 
 export const useAddTeacherData = () => {

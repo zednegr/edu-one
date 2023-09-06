@@ -73,6 +73,7 @@ function Group() {
             ),
         },
     ];
+
     const data = [
         {
             key: '1',
@@ -96,7 +97,6 @@ function Group() {
             tags: ['cool', 'teacher'],
         },
     ];
-
 
     const items = [
         {
@@ -170,7 +170,6 @@ function Group() {
                         </Space>
                     </SelectWrap>
                 </SelectWrapper>
-
 
                 <SelectWrapper>
                     <SelectTitle>Faol guruhlar</SelectTitle>

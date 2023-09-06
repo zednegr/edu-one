@@ -11,6 +11,7 @@ import { Menu } from 'primereact/menu';
 
 import { Skeleton } from 'antd';
 import { deleteTeacher, useAddTeacherData, useDeleteTeacher, useFetchTeacherData } from "../../../api/useTeacherApi";
+import SiteLoading from "../../site_loading/site_loading";
 
 
 function TeacherCard() {
@@ -40,18 +41,14 @@ function TeacherCard() {
     const {isLoading, isError, data, error} = useFetchTeacherData()
      
  
-    if (isLoading) return <Skeleton />
+    if (isLoading) return <SiteLoading />
 
     if (error) return 'An error has occurred: ' + error.message
-
-    console.log(data.data);
-    console.log(deleteT);
-
 
     return (
         <>
             {
-                data.data.map(item => {
+                data?.data?.map(item => {
                     return (
                         <TeacherCardWrap key={item.id} className="card" tooltipOptions={{ position: 'bottom', mouseTrack: true, mouseTrackTop: 15 }}>
                             <TeacherCardBox>
@@ -66,7 +63,6 @@ function TeacherCard() {
                                 menuRight.current.toggle(event), setDeleteT(item.id)
                             }} />
                             <Menu model={items} popup ref={menuRight} style={{ width: '150px', color: 'red' }} />
-
                         </TeacherCardWrap>
                     )
                 })

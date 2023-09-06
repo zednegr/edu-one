@@ -52,11 +52,14 @@ function TeacherModal({ open, setOpen }) {
 
     const data = {
       'name': name,
-      'tel': tel, 
-      'birthday': userDate,
-      'who': userJob,
+      'phone': tel, 
+      'date_birth': userDate,
+      'gender': userJob,
       'gens': userJn,
-      'password': userPassword
+      'photo': null,
+      'status': '5',
+      'password': userPassword,
+      'is_active': true
     }
 
     addTeacher(data)
@@ -184,8 +187,8 @@ function TeacherModal({ open, setOpen }) {
           <TeacherModalLabel>
             Jins
             <Radio.Group defaultValue="" buttonStyle="solid" size="large" onChange={(e) => setUserJn(e.target.value)}>
-              <Radio.Button value="erkak">Erkak</Radio.Button>
-              <Radio.Button value="ayol">Ayol</Radio.Button>
+              <Radio.Button value="1">Erkak</Radio.Button>
+              <Radio.Button value="2">Ayol</Radio.Button>
             </Radio.Group>
           </TeacherModalLabel>
           <TeacherModalLabel>

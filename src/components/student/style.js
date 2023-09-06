@@ -1,12 +1,13 @@
 import styled from "styled-components"
 
 export const StudentWrap = styled.section`
-
+   
 `
 
 export const StudentTop = styled.div`
     display: flex;
     gap: 0 15px;
+    overflow-x: auto;
     margin-bottom: 20px;
 `
 
@@ -40,12 +41,16 @@ export const StudentMain = styled.div`
 export const  StudentTableTop = styled.div`
     display: flex;
     align-items: center;
+    gap: 30px;
+
     padding: 0 20px;
     margin-bottom: 10px;
     width: 100%;
     height: 45px;
     border-radius: 10px;
     background-color: #fff;
+
+    
 `
 
 export const StudentTableTopItem = styled.div`
@@ -54,6 +59,51 @@ export const StudentTableTopItem = styled.div`
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+
+    &:nth-child(1) {
+        flex-shrink: 1;
+        width: 50px;
+    }
+
+    &:nth-child(2) {
+        width: 150px;
+        flex-shrink: 2;
+    }
+
+    &:nth-child(3) {
+        width: 150px;
+        flex-shrink: 2;
+    }
+
+    &:nth-child(4) {
+        width: 150px;
+        flex-shrink: 2;
+    }
+
+    &:nth-child(5) {
+        width: 150px;
+        flex-shrink: 2;
+    }
+
+    &:nth-child(6) {
+        width: 90px;
+        flex-shrink: 1;
+    }
+
+    &:nth-child(7) {
+        width: 90px;
+        flex-shrink: 1;
+    }
+
+    &:nth-child(8) {
+        width: 90px;
+        flex-shrink: 1;
+    }
+
+    &:nth-child(9) {
+        width: 70px;
+        flex-shrink: 1;
+    }
 `
 
 export const StudentTableMain = styled.div`
@@ -65,19 +115,57 @@ export const StudentTableMain = styled.div`
 export const StudentTableMainItem = styled.div`
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 30px;
     padding: 0 20px;
     width: 100%;
     height: 45px;
     border-radius: 10px;
-    background: #FFF;
-    justify-content: space-between;
-`
+    background: #FFF; 
+    /* justify-content: space-between; */
 
+
+`
+0
 export const StudentTableMainBox = styled.div`
     color: #6A6C72;
     font-size: 10px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+
+    &:nth-child(1) {
+        width: 50px;
+    }
+
+    &:nth-child(2) {
+        width: 150px;
+    }
+
+    &:nth-child(3) {
+        width: 150px;
+    }
+
+    &:nth-child(4) {
+        width: 150px;
+    }
+
+    &:nth-child(5) {
+        width: 150px;
+    }
+
+    &:nth-child(6) {
+        width: 90px;
+    }
+
+    &:nth-child(7) {
+        width: 90px;
+    }
+
+    &:nth-child(8) {
+        width: 90px;
+    }
+
+    &:nth-child(9) {
+        width: 70px;
+    }
 `
