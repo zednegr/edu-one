@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import {
   SelectTitle,
   SelectWrap,
@@ -19,9 +19,14 @@ import { Menu } from "primereact/menu";
 import { Select, Space, Input, Table, Tag } from "antd";
 import { useStudentData } from "../../api/useStudentApi";
 import SiteLoading from "../site_loading/site_loading";
+import { LengthContext } from "../../context/dataLength";
 
 function Student() {
   const { data, isLoading, isError } = useStudentData();
+
+  const {lengthData, setLengthData} = useContext(LengthContext)
+
+  setLengthData(data?.data?.length)
 
   const menuRight = useRef(null);
 

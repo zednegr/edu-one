@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import {
   CourseCard,
@@ -19,10 +19,15 @@ import {
 import { Kurs } from "./../../data/course-if-data";
 import { useCourseData } from "../../api/useCourseApi";
 import SiteLoading from "../site_loading/site_loading";
+import { LengthContext } from "../../context/dataLength";
 
 export default function Course() {
 
  const {data, isLoading, isError, error} = useCourseData();
+
+ const {lengthData, setLengthData} = useContext(LengthContext);
+
+ setLengthData(data?.data?.length)
 
  if(isLoading) {
   return <SiteLoading />
