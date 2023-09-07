@@ -16,6 +16,7 @@ import Groups from "../pages/groups/groups";
 import Courses from "../pages/courses/courses";
 import CourseInner from "../pages/courses/courses_inner/course_inner";
 import ProtectedRoute from "./ProtectedRoute";
+import Rooms from "../pages/rooms/rooms";
 
 function Authentication() {
   return (
@@ -31,6 +32,7 @@ function Authentication() {
           <Route path="groups/list" element={<Groups />} />
           <Route path="courses/list" element={<Courses />} />
           <Route path="courses/list/courseinner" element={<CourseInner />} />
+          <Route path="rooms/list" element={<Rooms />} />
         </Route>
       {/* <Route path="*" element={<RootLayout />} /> */}
       <Route path="/login" element={<Login />} />

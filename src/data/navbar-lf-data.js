@@ -27,5 +27,10 @@ export const navbar_lf_data = [
         name: 'Kurslar',
         img: 'pi pi-prime',
         link: '/courses/list'
+    },
+    {
+        name: 'Rooms',
+        img: 'pi pi-car',
+        link: '/rooms/list'
     }
 ]
