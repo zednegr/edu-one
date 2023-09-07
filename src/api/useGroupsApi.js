@@ -7,5 +7,5 @@ const fetchGroupsData = () => {
 }
 
 export const useGroupsData = () => {
-    return useQuery(fetchGroupsData)
+    return useQuery('group-data' ,fetchGroupsData)
 }

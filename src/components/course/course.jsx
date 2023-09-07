@@ -17,12 +17,22 @@ import {
   CourseColor,
 } from "./style";
 import { Kurs } from "./../../data/course-if-data";
+import { useCourseData } from "../../api/useCourseApi";
+import SiteLoading from "../site_loading/site_loading";
+
 export default function Course() {
+
+ const {data, isLoading, isError, error} = useCourseData();
+
+ if(isLoading) {
+  return <SiteLoading />
+ }
+
   return (
     <React.Fragment>
       <CourseWrap>
         <CourseWrapper>
-          {Kurs.map((course, index) => (
+          {data?.data?.map((course, index) => (
             <CourseContent key={index}>
               <Link to={`courseinner`}>
                 <CourseCard>
@@ -36,9 +46,9 @@ export default function Course() {
                   </CourseCardTop>
                   <CourseCardBottom>
                     <CourseDiv>
-                      <CourseDescription>{course.price}</CourseDescription>
+                      <CourseDescription>Narxi</CourseDescription>
                       <CoursePrice>
-                        {course.money}
+                        {course.price}
                         <CourseCurrensy>{"so'm"}</CourseCurrensy>
                       </CoursePrice>
                     </CourseDiv>

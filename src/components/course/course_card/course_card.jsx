@@ -25,19 +25,17 @@ import {
   GroupsTitle,
   GroupsTop,
 } from "./style";
+import { useCourseData } from "../../../api/useCourseApi";
 
 // import { CourseCard  } from "../../../data/course-if-card";
 
 function CourseCard() {
-  const API = "https://64ec8fe5f9b2b70f2bfa8eb4.mockapi.io/person-detail";
-
-  const { isLoading, error, data } = useQuery("repoData", () =>
-    fetch(API).then((res) => res.json())
-  );
+  
+  const {data, isLoading, isError, error} = useCourseData()
 
   if (isLoading) return <h1>Loading...</h1>
 
-  if (error) return "An error has occurred: " + error.message;
+  if (isError) return "An error has occurred: " + error.message;
 
   console.log(data);
 
@@ -49,7 +47,7 @@ function CourseCard() {
             <GroupsTitle>{"grupalar"}</GroupsTitle>
           </GroupsTop>
           <GroupsBottom>
-            {data.map((item, index) => (
+            {data?.data?.map((item, index) => (
               <GroupsDetail key={index}>
                 <GroupsDetailPerson>
                   <GroupsPersonAbout>

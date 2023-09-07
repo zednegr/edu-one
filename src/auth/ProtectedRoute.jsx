@@ -6,8 +6,6 @@ import { Navigate } from "react-router-dom";
 function ProtectedRoute({children}){
     const {authToken} = useContext(Context);
 
-    console.log(authToken);
-
     if(authToken){
         return children
     }else{
